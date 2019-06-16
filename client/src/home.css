@@ -1,0 +1,85 @@
+/* style for user home page*/
+
+header{
+    width: 175%;
+    border-bottom: 2px solid #aec6cf;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.three_wrapper{
+     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-shrink: 1;
+}
+
+.three_main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 300px;
+    width:80%;
+}
+.three_list{
+    padding-top:30px;
+}
+
+.three_individual{
+    width: 100%;
+    margin: 10px;
+    padding:40px 60px;
+    border: 1px solid #aec6cf;
+    box-shadow: 5px 5px #aec6cf;
+    text-align: center;
+}
+
+.three_sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+    padding: 30px;
+    border: 1px solid #aec6cf;
+    width:20%;
+}
+
+.three_credentials{
+    border: 1px solid #aec6cf;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.three_credentials img{
+    max-width: 50%;
+    max-height: 50%;
+    border-radius: 50%;
+}
+
+.three_createPostBtn{
+    border-radius: 5%;
+    margin-top: 20px;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #aec6cf;
+   
+
+}
+
+#three_createPost{
+    text-align: center;
+    padding: 20px 60px;
+    border-radius: 45%;
+    max-width: 100%;
+}
+.three_sideSub{
+    position: relative
+}
+
+
+
