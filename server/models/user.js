@@ -4,8 +4,6 @@ const bcrypt = require('bcrypt');
 //creating a sequealize instance with our db 
 const sequealize = new Sequelize('postgres://postgres@localhost:5432/auth-system')
 
-
-
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('user', {
         id:{
@@ -15,13 +13,26 @@ module.exports = (sequelize, DataTypes) => {
         },
         username:{
             type: DataTypes.STRING,
-            required: true
+            required: true,
+            allowNull: false
         },
 
         password:  {
             type: DataTypes.STIRING,
-            required: true
+            required: true, 
+            allowNull: false
+        }, 
+        hooks: {
+            beforeCreate: (user) => {
+                const salt = bcrypt.genSaltSync(); 
+                user.password = bcrypt.hashSync(user.password, salt); 
+            }
         },
+            instanceMethods: {
+                validPassword: function(password) {
+                    return bcrypt.compare(password,this.password);
+            }
+        }, 
 
         imageUrl:{
             type: DataTypes.STRING ,
@@ -42,6 +53,10 @@ module.exports = (sequelize, DataTypes) => {
             underscored: true
  });
 
+ sequealize.sync()
+    .then(() => console.log('users table has been successfully created, if one does not exist'))
+    .catch (error => console.log('This error occured', error )); 
+    
  return User;
 
 }
