@@ -4,6 +4,16 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+/******** auth specific definitions ************/
+
+//makes HTTp calls within the app 
+var request = require('request'); 
+
+//manages everything session-related (i.e cookies)
+var session = require('express-session')
+
+/******** auth specific definitions ***********/
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
