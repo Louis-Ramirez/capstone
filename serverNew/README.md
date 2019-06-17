@@ -1,6 +1,6 @@
 # Backend section
 
-Run npm install to get all the necessary files 
+Run npm install to get all the necessary files
 ```
 git clone {this master repository url if you had not done so already}
 npm install
@@ -29,6 +29,12 @@ info stored into the config file
 ```
 
 ### Database Migrations
+install your sequelize if you had not done so
+```
+npm install sequelize pg pg-hstore
+npm install -g sequelize-cli
+```
+
 ```
 sequelize db:migrate
 ```
