@@ -1,9 +1,15 @@
-var express = require('express');
-var router = express.Router();
+'use strict'
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
 
-module.exports = router;
+const routes = [
+  require('./user'), 
+  require('./comments'), 
+  require('./post'), 
+]; 
+
+// Add access to the app and db objects to each route
+module.exports = function router(app, db) {
+  return routes.forEach((route) => {
+    route(app, db);
+  });
+};
