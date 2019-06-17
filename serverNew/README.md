@@ -35,6 +35,7 @@ npm install sequelize pg pg-hstore
 npm install -g sequelize-cli
 ```
 
+Run the migrations!
 ```
 sequelize db:migrate
 ```
@@ -44,6 +45,11 @@ To undo migrations
 sequelize db:migrate:undo:all
 ```
 
+### Postman
+Go to postico and make sure you configure your settings accurately before calling the api.
+For instance, if you are trying to create a user, the dropdown menu next to it needs to be POST
+
+After modifying changes, you can use Postico to check your database to see if your data is in it. 
 
 ### Database Schema
 ```
