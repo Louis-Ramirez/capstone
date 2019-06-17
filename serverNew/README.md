@@ -48,6 +48,7 @@ Comment (
 
 ### To start server
 ```
+npm install
 npm start
 ```
 
