@@ -6,6 +6,22 @@ npm install
 
 ```
 
+In the capstone/serverNew/server/config/config.json
+- update the development section with your username, password, and database name. Make sure you don't commit changes with this
+info stored into the config file
+```
+{
+  "development": {
+    "username": "YOUR COMPUTER USER NAME",
+    "password": "YOUR COMPUTER PW",
+    "database": "YOUR POSTGRES database",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false,
+    "omitNull": true
+
+```
+
 ### Database Migrations
 ```
 sequelize db:migrate
