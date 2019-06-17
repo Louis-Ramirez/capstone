@@ -1,9 +1,15 @@
 # Backend section
 
+Run npm install to get all the necessary files 
 ```
-git clone {this repository url}
+git clone {this master repository url if you had not done so already}
 npm install
 
+```
+
+Make sure you have a database already created
+```
+createdb your-database-name
 ```
 
 In the capstone/serverNew/server/config/config.json
