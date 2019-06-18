@@ -1,7 +1,7 @@
  const authConfig = {
-    secret : "peterpiperpickedaredpepperonasunday"
+    secret : ""
 }
-
+// secret string goes here 
 module.exports = authConfig;
 
 
