@@ -7,15 +7,11 @@ class App extends Component {
   render(){
   	return(
   		<Router>
-	  		<div>
-	  			<Route exact path="/" component={Home}/>
-	  			<Route path="/signUp" component={SignUp}/>
-	  			<Route path="/logIn" component={LogIn}/>
-	  		</div>
+  			<Route path="/" exact component={Landing}/>
+  			<Route path="/signup" component={signUp}/>
+  			<Route path="/login" component={LogIn}/>
   		</Router>
   		)
-    // return(<LandingPage/>)
-    //make a router
   }
 }
 export default App;
