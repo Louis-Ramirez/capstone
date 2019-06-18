@@ -1,7 +1,7 @@
  const authConfig = {
-    secret : ""
+    secret : "peterpiperpickedaredpepperonasunday"
 }
-//enter randon string in this file
+
 module.exports = authConfig;
 
 
