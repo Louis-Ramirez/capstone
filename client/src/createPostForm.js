@@ -1,5 +1,6 @@
 //createPostForm.js
-import React from 'react';
+import React, {Component} from 'react';
+//import {database} from '../fir'
 
 class Input extends Component {
     constructor(props){
@@ -24,15 +25,20 @@ onHandleSubmit(e){
         title: this.state.title,
         body: this.state.body
     };
-    database.savePost(post);  //database is supposed to be declared in the backend database
-}                             // example: export const database = firebase.database().ref('/posts'); // syntax may differ for posgress
-
+    database.push(post);  //database is supposed to be declared in the backend database
+                             // example: export const database = firebase.database().ref('/posts'); // syntax may differ for posgress
+    this.setState({
+        title:'',       // return state to default 
+        body:''
+    });
+}
 render() {
     return(
         <div className="container">
             <form onSubmit ={this.onHandleSubmit}>
             <div className = "form-group">      
                 <input 
+                value={this.state.title}
                 type ="text" 
                 name="title" 
                 placeholder="Title" 
@@ -43,6 +49,7 @@ render() {
             </div>   
             <div className = "form-control">
                 <input 
+                value={this.state.body}
                 type ="text" 
                 name="body"  
                 placeholder="Body" 
