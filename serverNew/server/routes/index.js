@@ -1,6 +1,13 @@
 import Users from '../controllers/user';
 import Posts from '../controllers/post';
 import Comments from '../controllers/comment';
+import passport from 'passport';
+
+
+require( '../services/passport')(passport);
+
+const authentication = passport.authenticate('jwt' , {session :false}
+);
 
 export default (app) => {
 
@@ -9,11 +16,11 @@ export default (app) => {
   }));
 
   app.post('/api/users/signup', Users.signUp); // API route for user to signup
-  app.post('api/users/signin', Users.signIn); // API rote to log in  authorized user
-  app.delete('api/user/:userId', Users.delete);
+  app.post('/api/users/signin', Users.signIn); // API rote to log in  authorized user
+  app.delete('/api/users/:userId', Users.delete);
 
   app.post('/api/users/:userId/posts', Posts.create); // API route for user to create a Post from controllers
-  app.get('/api/posts', Posts.list);
+  app.get('/api/posts', authentication , Posts.list);
   app.put('/api/posts/:postId', Posts.modify);
   app.delete('/api/posts/:postId', Posts.delete);
 

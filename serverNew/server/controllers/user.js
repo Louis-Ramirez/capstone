@@ -1,5 +1,8 @@
 import model from '../models';
 import bcrypt from 'bcryptjs';
+import '../services/passport';
+import jwt from 'jsonwebtoken';
+import authConfig from '../config.js';
 
 const { User } = model;
 
@@ -22,7 +25,6 @@ class Users {
           imageUrl: req.query.imageUrl
         })
         .then(userData => {
-          console.log(userData);
           res.status(201).send({
           success: true,
           message: 'User successfully created',
@@ -36,10 +38,47 @@ class Users {
     })
   }
 
+  //sign in authenitcation method
   static signIn(req, res){
-
+    //check if email is a valid email
+      User.findOne({
+          where: { email: req.query.email}
+      })
+      .then(user => {
+            if (user ==null){
+              return res.status(401).json({
+                success: false,
+                message: "Authentication Failed: user not found"
+              })
+            }
+            bcrypt.compare(req.query.password, user.password, (error, result)=>{
+              if(error){
+               return res.status(401).json({
+                 success: false,
+                 message: "Authentication Failed: user not found"
+               });
+              }
+              if(result){
+                // if password correct return user token
+                const token = jwt.sign({email: user.email, id: user.id}, 
+                 authConfig.secret,{
+                 expiresIn:  "1h" });
+                res.status(200).json({
+                  success: true,
+                  message: "User has been signed in!",
+                  token: token,
+                  user: {}
+                })
+              }
+            })
+        })
+        .catch(error  => res.status(500).json({
+          success: false,
+          message: "Authentication Failed!"
+      }))
   }
 
+// method to delete user 
   static delete (req, res) {
       return User
       .destroy({
@@ -47,15 +86,18 @@ class Users {
           id : req.params.id
         }
       })
-      .then(res.status(200).json({
+      .then(deletedUser => res.status(200).json({
         success: true,
-        message: "user deleted"
+        message: "user deleted",
+        deletedUser
       }))
       .catch(error  => res.status(500).json({
         success: false,
         message: error.errors[0].message
     }))
   }
+ 
 }
+
 
 export default Users;
