@@ -31,3 +31,12 @@
     transform: rotate(360deg);
   }
 }
+
+.form-container{
+  background-color: #4B314B;
+  padding-top: 30vh;
+  width: 60%;
+  padding-right: 100px;
+  padding-left: 110px;
+  height: 90vh;
+}
