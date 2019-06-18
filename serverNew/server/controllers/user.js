@@ -30,14 +30,32 @@ class Users {
         })})
         .catch(error  => res.status(500).json({
             success: false,
-            message: error
+            message: error.errors[0].message
         }))
       }
     })
-    
-    const { username, email, password, imageUrl } = req["query"]
-      
-    }
+  }
+
+  static signIn(req, res){
+
+  }
+
+  static delete (req, res) {
+      return User
+      .destroy({
+        where:{
+          id : req.params.id
+        }
+      })
+      .then(res.status(200).json({
+        success: true,
+        message: "user deleted"
+      }))
+      .catch(error  => res.status(500).json({
+        success: false,
+        message: error.errors[0].message
+    }))
+  }
 }
 
 export default Users;

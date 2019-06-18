@@ -9,6 +9,8 @@ export default (app) => {
   }));
 
   app.post('/api/users/signup', Users.signUp); // API route for user to signup
+  app.post('api/users/signin', Users.signIn); // API rote to log in  authorized user
+  app.delete('api/user/:userId', Users.delete);
 
   app.post('/api/users/:userId/posts', Posts.create); // API route for user to create a Post from controllers
   app.get('/api/posts', Posts.list);
