@@ -8,7 +8,7 @@ export default (app) => {
     message: 'Welcome to the Capstone API!',
   }));
 
-  app.post('/api/users', Users.signUp); // API route for user to signup
+  app.post('/api/users/signup', Users.signUp); // API route for user to signup
 
   app.post('/api/users/:userId/posts', Posts.create); // API route for user to create a Post from controllers
   app.get('/api/posts', Posts.list);
