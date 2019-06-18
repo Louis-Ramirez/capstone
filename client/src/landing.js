@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
+
 //Component that displays the landing page
 class LandingPage extends Component {
 	constructor(props)
@@ -11,19 +12,13 @@ class LandingPage extends Component {
 		};
 	};
 
-	handleSubmit(event){
-		//if "Sign Up" is clicked
-		//redirect user to signUp.js
-		if(this.state.toSignUp === true) {
-
-			return <Redirect to = '.../signUp.js'/>
-		}
-		
-		//if "Log In" is clicked
-		//redirect user to login.js
-		if(this.state.toLogIn === true){
-
-			return <Redirect to = '.../login.js'/>
+	handleSubmit = (event) => {
+		console.log(event.target.name)
+		if(event.target.name === "signUp"){
+			return <Redirect to = "/signUp"/>
+			// return <Redirect to = "/signUp"/>
+		} else if(event.target.name ==="logIn"){
+			return <Redirect to = "logIn"/>
 		}
 	}
 	render()
@@ -58,13 +53,13 @@ class LandingPage extends Component {
 					<div><h1>See what's happening in the world right now!</h1></div>
 
 					<div className="signUpForm">
-						<button className = "signUpButton" onClick = {this.handleSubmit} >Sign Up</button>
-						<button className = "logInButtin" onClick = {this.handleSubmit} >Log in</button>
+						<button className = "signUpButton" onClick = {this.handleSubmit} name = "signUp">Sign Up</button>
+						<button className = "logInButtin" onClick = {this.handleSubmit} name = "logIn">Log in</button>
 					</div>
 					
 				</div>
 			</div>
-			)
+		)
 	}
 }
 
