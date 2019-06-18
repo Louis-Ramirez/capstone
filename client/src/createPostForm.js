@@ -10,6 +10,7 @@ class Input extends Component {
         };
     //bind
 this.onInputChange = this.onInputChange.bind(this);    
+this.onHandleSubmit = this.onHandleSubmit.bind(this);
 }
 
 onInputChange(e){
@@ -17,10 +18,19 @@ onInputChange(e){
         [e.target.name]: e.target.value
     });
 }
+onHandleSubmit(e){
+    e.preventDefault();
+    const post ={
+        title: this.state.title,
+        body: this.state.body
+    };
+    database.savePost(post);  //database is supposed to be declared in the backend database
+}                             // example: export const database = firebase.database().ref('/posts'); // syntax may differ for posgress
+
 render() {
     return(
         <div className="container">
-            <form >
+            <form onSubmit ={this.onHandleSubmit}>
             <div className = "form-group">      
                 <input 
                 type ="text" 
@@ -41,7 +51,7 @@ render() {
                 className="form-control"
                 />
             </div>
-            <button className="btn-btb-primary">Post</button>
+            <button className="btn-btn-primary">Post</button>
             </form>
         </div>
      );
