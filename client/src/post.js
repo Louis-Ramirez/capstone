@@ -11,6 +11,7 @@ class Post extends Component{
   render(){
     return(
       <div className="five_postContainer">
+
         <div className="five_postTitle">
           <h2>Anderson Cooper & more remember Gloria Vanderbilt: "An American icon"</h2>
           <p>LAT Entertainment ~ 2 hours ago</p>
