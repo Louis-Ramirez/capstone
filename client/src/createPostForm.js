@@ -22,12 +22,26 @@ render() {
         <div className="container">
             <form >
             <div className = "form-group">      
-                <input type ="text" name="title" placeholder="Title" onChange = {this.onInputChange} ref="title" />
+                <input 
+                type ="text" 
+                name="title" 
+                placeholder="Title" 
+                onChange = {this.onInputChange} 
+                ref="title"
+                className ="form-group" 
+                />
             </div>   
             <div className = "form-control">
-                <input type ="text" name="body"  placeholder="Body" onChange={this.onInputChange} ref="body" />
+                <input 
+                type ="text" 
+                name="body"  
+                placeholder="Body" 
+                onChange={this.onInputChange} 
+                ref="body"
+                className="form-control"
+                />
             </div>
-            <button>Post</button>
+            <button className="btn-btb-primary">Post</button>
             </form>
         </div>
      );
