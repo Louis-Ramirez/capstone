@@ -67,7 +67,7 @@ class Users {
                   success: true,
                   message: "User has been signed in!",
                   token: token,
-                  user: {}
+                  user: {username: user.username, imageUrl: user.imageUrl, email: user.email}
                 })
               }
             })
