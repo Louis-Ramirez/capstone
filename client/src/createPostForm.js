@@ -1,7 +1,7 @@
 //createPostForm.js
 import React from 'react';
 
-class input extends Component {
+class Input extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -20,14 +20,18 @@ onInputChange(e){
 render() {
     return(
         <div className="container">
-            <form>
+            <form >
+            <div className = "form-group">      
                 <input type ="text" name="title" placeholder="Title" onChange = {this.onInputChange} ref="title" />
+            </div>   
+            <div className = "form-control">
                 <input type ="text" name="body"  placeholder="Body" onChange={this.onInputChange} ref="body" />
-                <button>Post</button>
+            </div>
+            <button>Post</button>
             </form>
         </div>
      );
     }
 }
 
-export default input;
+export default Input;
