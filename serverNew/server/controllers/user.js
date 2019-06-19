@@ -40,19 +40,24 @@ class Users {
 
   //sign in authenitcation method
   static signIn(req, res){
+    console.log('THE EMAIL IS ============>>>>>>', req.body)
     //check if email is a valid email
       User.findOne({
-          where: { email: req.query.email}
+         where: { email: req.body.email}
+
       })
       .then(user => {
+        console.log("User ===============",user)
             if (user ==null){
               return res.status(401).json({
                 success: false,
                 message: "Authentication Failed: user not found"
               })
             }
-            bcrypt.compare(req.query.password, user.password, (error, result)=>{
+            bcrypt.compare(req.body.password, user.password, (error, result)=>{
+              console.log("result ============>", result);
               if(error){
+                console.log("error ============>", error);
                return res.status(401).json({
                  success: false,
                  message: "Authentication Failed: user not found"
@@ -78,10 +83,13 @@ class Users {
               }
             })
         })
-        .catch(error  => res.status(500).json({
+        .catch(error  => {
+          
+          console.error(error);
+          res.status(500).json({
           success: false,
           message: "Authentication Failed!"
-      }))
+      })})
   }
 
 // method to delete user 
