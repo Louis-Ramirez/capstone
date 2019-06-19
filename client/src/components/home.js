@@ -5,7 +5,8 @@ import like from '../imgs/like.png';
 import dislike from '../imgs/dislike.png'
 import '../styles/home.css';
 import Input from './createPostForm';
-
+import Header from './header.js';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class Home extends React.Component{
     constructor(props){
@@ -75,9 +76,7 @@ class Home extends React.Component{
         return(
             <div className="three_wrapper" >
                 <div className="three_main">
-                    <header>
-                        <h1>Welcome</h1>
-                    </header>
+                    
                     {this.state.createPost ? <div className={showHide} >{this.TempForm}</div>: <div></div>}
                     {/*<CreatePost show={this.state.createPost} handleClose={this.closeForm} /> */}
                     <div className="three_list">

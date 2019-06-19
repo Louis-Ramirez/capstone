@@ -5,18 +5,22 @@ import login from './components/login.js';
 import Home from './components/home.js';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './styles/App.css';
+import Header from './components/header.js'
 
 class App extends Component {
   render(){
   	return(
+      <div>
   		<Router>
-  			<Switch>
-				<Route path="/" exact component={LandingPage}/>
-				 <Route path="/signup" component={signup}/>
-			    <Route path="/login" component={login}/>
-                <Route path="/home" component={Home} />
+            <Header/>
+      <Switch>
+        <Route path="/" exact component={LandingPage}/>
+				<Route path="/signup" component={signup}/>
+        <Route path="/login" component={login}/>
+        <Route path="/home" component={Home} />
   			</Switch>
   		</Router>
+      </div>
   		)
   }
 }
