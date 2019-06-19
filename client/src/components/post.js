@@ -11,8 +11,22 @@ import {fetchAllPostsThunk, addNewPostThunk, fetchAllPostCommentsThunk } from '.
 class Post extends Component{
   constructor(props){
     super(props);
+    this.state = {
+      sideBar: false
+    }
 
   }
+  toggleSideBar = () => {
+    this.setState({sideBar: !this.state.sideBar});
+  }
+  sideBarView = (
+    <div className="three_sidebar" onMouseLeave={this.toggleSideBar}>
+      <div className="three_credentials three_sideSub">
+            <img src="https://data.whicdn.com/images/320568210/large.jpg" alt="Cartoon Girl"/>
+            <h3> Cartoon Girl</h3>
+        </div>
+    </div>
+  )
 
   setComment() {
     let arr = [1,2,3];
@@ -30,10 +44,6 @@ class Post extends Component{
 
   componentDidMount() {
     this.props.getAllPostComments(4);
-
-    // console.log("in mount ");
-    // this.props.getAllPostComments();
-    // console.log("post.js====",this.props);
   }
 
   render(){
@@ -59,6 +69,8 @@ class Post extends Component{
           <button className="five_commentButton">Submit</button>
         </div>
         {this.setComment()}
+
+        {this.state.sideBar ? this.sideBarView : <div  id="five_default" onMouseEnter={this.toggleSideBar}> </div> }
       </div>
 
     );

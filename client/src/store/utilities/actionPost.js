@@ -47,7 +47,7 @@ export const addNewPostThunk = (post, userId) => (dipatch) => {
 
 export const fetchAllPostCommentsThunk = (postId) => (dispatch) => {
   return axios
-    .get("/api/posts/4/comments")
+    .get(`/api/posts/${postId}/comments`)
     .then(response => dispatch(fetchAllPostsComments(response))
     )
     .catch(err => console.log(err));
