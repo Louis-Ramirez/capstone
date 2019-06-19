@@ -2,25 +2,49 @@
 import {Redirect} from 'react-router-dom';
 import _ from 'lodash';
 //import database
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import renderHTML from 'react-render-html';
+
 class CreatePost extends Component {
     constructor(props){
-    //bind
+     super(props); 
+     this.state = {
+         title:'',
+         body:'',
+         posts:{}
+     };
+//bind
 this.onInputChange = this.onInputChange.bind(this);    
 this.onHandleSubmit = this.onHandleSubmit.bind(this);
 }
-
-
-// renderPosts(){
-// return _.map(collection, (key, post))=>{
-
-// };
-
-
-onInputChange(e){
-    this.setState({
-        [e.target.name]: e.target.value
+//life cycle
+componentDidMount(){
+    database.on('value', snapshot => {
+        this.setState({
+            posts: snapshot.val()
+        });
     });
 }
+
+//  // render posts 
+//  renderPosts() {
+//     return _.map(this.state.posts, (post, key) => {
+//       return (
+//         <div key={key}>
+//           <h2>{post.title}</h2>
+//           <p>{renderHTML(post.body)}</p>
+//         </div>
+//       );
+//     });
+//   }
+
+
+onHandleChange(e){
+    this.setState({ body: e });
+    console.log(this.state.body);
+}
+
 onHandleSubmit(e){
     e.preventDefault();
     const post ={
@@ -36,34 +60,65 @@ onHandleSubmit(e){
 render() {
     return(
         <div className="container">
-            <form onSubmit ={this.onHandleSubmit}>
-            <div className = "form-group">      
-                <input 
-                value={this.state.title}
-                type ="text" 
-                name="title" 
-                placeholder="Title" 
-                onChange = {this.onInputChange} 
-                ref="title"
-                className ="form-group" 
-                />
-            </div>   
-            <div className = "form-control">
-                <input 
-                value={this.state.body}
-                type ="text" 
-                name="body"  
-                placeholder="Body" 
-                onChange={this.onInputChange} 
-                ref="body"
-                className="form-control"
-                />
-            </div>
-            <button className="btn-btn-primary">Post</button>
-            </form>
-        </div>
-     );
-    }
+        <form onSubmit={this.onHandleSubmit}>
+          <div className="form-group">
+            <input
+              value={this.state.title}
+              type="text"
+              name="title"
+              placeholder="Title"
+              onChange={e => {
+                this.setState({ title: e.target.value });
+              }}
+              ref="title"
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <ReactQuill
+              modules={CreatePost.modules}
+              formats={CreatePost.formats}
+              value={this.state.body}
+              placeholder="Body"
+              onChange={this.onHandleChange}
+            />
+          </div>
+          <button className="btn btn-primary">Post</button>
+        </form>
+        <br />
+        {this.renderPosts()}
+      </div>
+    );   
+  }
 }
 
-export default CreatePost;
+CreatePost.modules = {
+    toolbar: [
+      [{ header: '1' }, { header: '2' }, { font: [] }],
+      [{ size: [] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['link', 'image', 'video'],
+      ['clean'],
+      ['code-block']
+    ]
+  };
+  
+  CreatePost.formats = [
+    'header',
+    'font',
+    'size',
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'blockquote',
+    'list',
+    'bullet',
+    'link',
+    'image',
+    'video',
+    'code-block'
+  ];
+
+  export default CreatePost;

@@ -1,1 +1,0 @@
-import createPost from './components/createPostFrom.js'
