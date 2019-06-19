@@ -1,11 +1,39 @@
 //post.js
 
 import React, {Component} from 'react';
-import './post.css';
+import '../styles/post.css';
+import {Link} from 'react-router-dom';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {fetchAllPostsThunk, addNewPostThunk, fetchAllPostCommentsThunk } from '../thunks';
+
 
 class Post extends Component{
   constructor(props){
     super(props);
+
+  }
+
+  setComment() {
+    let arr = [1,2,3];
+    if(this.props.postReducer !== 0 && this.props.postReducer.data !== undefined){
+      return(
+        this.props.postReducer.data.map(element =>
+          <div className="five_eachUserCommentBox">
+            <p>{element.body}</p>
+          </div>
+        )
+      )
+
+    }
+  }
+
+  componentDidMount() {
+    this.props.getAllPostComments(4);
+
+    // console.log("in mount ");
+    // this.props.getAllPostComments();
+    // console.log("post.js====",this.props);
   }
 
   render(){
@@ -30,12 +58,36 @@ class Post extends Component{
           <input type="text" name="commentBox" className="five_postCommentBox" placeholder="Insert comments here"/>
           <button className="five_commentButton">Submit</button>
         </div>
-
-
+        {this.setComment()}
       </div>
+
     );
   }
 }
 
 
-export default Post
+// takes state which is part of store and sends it into props
+// allcampus is from reducer/index.js
+function mapStateToProps(state){
+  return {
+    postReducer: state.postReducer
+  };
+}
+
+// pass functions as to props in order to call props.addNewCampus
+// function matchDispatchToProps(dispatch){
+//   return bindActionCreators({ addNewCampus: fetchCampusThunk}, dispatch);
+// }
+
+
+// Map dispatch to props;
+function matchDispatchToProps(dispatch) {
+  return {
+    addNewPost: (post, userId) => dispatch(addNewPostThunk(post, userId)),
+    getAllPost: () => dispatch(fetchAllPostsThunk()),
+    getAllPostComments: (postId) => dispatch(fetchAllPostCommentsThunk(postId)),
+  }
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Post);
+// export default connect(null, matchDispatchToProps)(Post);

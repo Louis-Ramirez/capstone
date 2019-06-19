@@ -1,42 +1,27 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Post from "./post";
+import Post from "./components/post";
+import Home from "./components/home";
+import LogIn from "./components/login";
+import SignUp from "./components/signUp"
+import LandingPage from './components/landing.js';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 
 function App() {
   return (
-    <div>
-    <Post/>
-    </div>
-    // <div className="App">
-    //   <Navbar/>
-    //   <Home></Home>
-    //   <Campus></Campus>
-    //   <Students></Students>
-    // </div>
+    <Router>
+	  		<Switch>
+	  			<Route exact path="/" component={LandingPage}/>
+          <Route exact path="/posts" component={Post}/>
+          <Route path="/posts/:id" component={Post}/>
+          <Route exact path="/home" component={Home}/>
+          <Route exact path="/login" component={LogIn}/>
+          <Route exact path="/signup" component={SignUp}/>
+	  		</Switch>
+  	</Router>
   );
 }
-//
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;
