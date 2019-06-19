@@ -1,16 +1,9 @@
 //createPostForm.js
-import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
 import _ from 'lodash';
 //import database
 class CreatePost extends Component {
     constructor(props){
-        super(props)
-        this.state = {
-            title:'',
-            body:''
-            
-        };
     //bind
 this.onInputChange = this.onInputChange.bind(this);    
 this.onHandleSubmit = this.onHandleSubmit.bind(this);
@@ -28,7 +21,6 @@ onInputChange(e){
         [e.target.name]: e.target.value
     });
 }
-
 onHandleSubmit(e){
     e.preventDefault();
     const post ={

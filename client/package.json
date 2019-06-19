@@ -12,10 +12,15 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+<<<<<<< HEAD
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
     "redux": "^4.0.1"
+=======
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1"
+>>>>>>> 70df8cad007cdcdd2bd3da3d6b80feae42bfcba7
   },
   "scripts": {
     // "test": "echo \"Error: no test specified\" && exit 1",
