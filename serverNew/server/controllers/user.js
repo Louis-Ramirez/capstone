@@ -40,7 +40,7 @@ class Users {
 
   //sign in authenitcation method
   static signIn(req, res){
-    console.log('THE EMAIL IS ============>>>>>>', req.body)
+    console.log('THE EMAIL IS ============>>>>>>', req)
     //check if email is a valid email
       User.findOne({
          where: { email: req.body.email}
