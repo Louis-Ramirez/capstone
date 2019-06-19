@@ -43,9 +43,7 @@ class LandingPage extends Component {
 				
 				<div className="split right ">
 					<div className= "centered">
-<<<<<<< HEAD
-=======
-						<div className="signUpHeader">
+				<div className="signUpHeader">
 							<div>
 								<img src = "https://useiconic.com/open-iconic/svg/puzzle-piece.svg" width = "50" align = "left"/>							</div>	
 								<h1>Piece together the world.</h1>
@@ -54,7 +52,6 @@ class LandingPage extends Component {
 							<h2>Join Jigsaw today!</h2>
 							<button className = "signUpButton" onClick = {this.handleSubmit} name = "signUp">Sign Up</button>
 							<Link to = "/signup"><button className = "logInButton" onClick = {this.handleSubmit} name = "logIn">Log in</button></Link>
->>>>>>> 70df8cad007cdcdd2bd3da3d6b80feae42bfcba7
 						</div>
 					</div>
 					
