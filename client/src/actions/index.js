@@ -7,7 +7,7 @@ export const AUTHENTICATED = 'authenticated_user';
 export const UNAUTHENTICATED = 'unauthenticated_user'; 
 export const AUTHENTICATION_ERROR = 'authentication_error'; 
 
-const URL = 'http://www.sample-website.com'; 
+const URL = 'http://127.0.0.1:3000'; 
 
 //passing password and history from login component 
 //email/pass required for auth & history object will
@@ -16,7 +16,7 @@ export function loginAction({email, password}, history){
     return async(dispatch) => {
         try {
             //post -> sending email & pass to the server 
-            const res = await axios.post(`${URL}/login`, {email, password}); 
+            const res = await axios.post(`${URL}/api/users/signin`, {email, password}); 
 
             dispatch({ type: AUTHENTICATED}); 
             //AUTHENTICATED saves token in localStorage 
