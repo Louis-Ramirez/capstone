@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import LandingPage from './components/landing.js';
 import signup from './components/signUp.js';
- import login from './components/login.js';
+import login from './components/login.js';
+import Home from './components/home.js';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import './App.css';
+import './styles/App.css';
 
 class App extends Component {
   render(){
@@ -12,7 +13,8 @@ class App extends Component {
   			<Switch>
 				<Route path="/" exact component={LandingPage}/>
 				 <Route path="/signup" component={signup}/>
-			<Route path="/login" component={login}/>
+			    <Route path="/login" component={login}/>
+                <Route path="/home" component={Home} />
   			</Switch>
   		</Router>
   		)
