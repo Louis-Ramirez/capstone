@@ -26,7 +26,9 @@ class login extends Component {
         return (
             <div className="form-container">
                 <div className="container"> 
-                    <h2>Login</h2>
+                    <h3 className="title">Login</h3>
+
+                    
                     <form onSubmit={ handleSubmit(this.submit)}> 
                     <Field name="username"
                         component="input"
@@ -39,6 +41,8 @@ class login extends Component {
                         placeholder="Password"
                     />
                     <button type="submit" className="Login-Btn">Login In</button>
+
+                    
                     </form>
                     {this.errorMessage()}
                 </div>

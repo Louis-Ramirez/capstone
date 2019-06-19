@@ -1,7 +1,6 @@
 
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import App from './App';
 import Navbar from './navbar'; 
 import reducers from './reducers'
 import reduxThunk from 'redux-thunk'; 
@@ -35,9 +34,11 @@ if(user) {
 ReactDOM.render(
 //passing store to be able to use connect() calls 
 <Provider store={store}>
+
     <Router> 
+        
         <Switch>
-            <Navbar /> 
+            
             <Route exact path="/" component = {LandingPage} /> 
             <Route exact path="/signup" component = {noRequireAuth(signUp)} /> 
             <Route exact path="/login" component = {noRequireAuth(login)} /> 
