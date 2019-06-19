@@ -22,7 +22,7 @@ export function loginAction({email, password}, history){
             //AUTHENTICATED saves token in localStorage 
             localStorage.setItem('user', res.data.token); 
             //history.push() redirects the user to the specific route URL
-            history.push('/secret'); 
+            history.push('/post'); 
         } catch (error){
             dispatch({
                 type: AUTHENTICATION_ERROR, //action

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'; 
 import { connect } from 'react-redux'; 
-import { signupAction } from './actions'; 
+import { signoutAction } from './actions'; 
+
 
 class Signout extends Component {
     componentDidMount() {
@@ -12,4 +13,7 @@ class Signout extends Component {
     }
 }
 
-export default connect(null,actions)(Signout); 
+export default connect(null, signoutAction); 
+
+// const connectedSignoutPage = connect(mapStateToProps)(Signout);
+// export { connectedSignoutPage as Signout }; 

@@ -9,7 +9,7 @@ class navbar extends Component {
         //if user is logged in then we render signout and secret page links 
         if (this.props.authenticated) {
             return [
-                <li key="secret"><Link to="/secret">Secret</Link></li>,
+                <li key="home"><Link to="/home">home</Link></li>,
                 <li key="signout"><Link to="/signout">Sign out</Link></li>
             ]; 
         }

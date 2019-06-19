@@ -53,7 +53,8 @@ function mapStateToProps(state) {
 }
 
 //to make the sign in form communicate with the store, needs to wrapped around reduxForm
-export default reduxForm({
+//
+const reduxFormLogin = reduxForm({
     form:'login'
 }) (login); //the class 
 
