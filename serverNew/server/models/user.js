@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     username: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: {
         args: false,
         msg: 'Please enter a username'
