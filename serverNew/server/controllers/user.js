@@ -66,7 +66,7 @@ class Users {
                 res.status(200).json({
                   success: true,
                   message: "User has been signed in!",
-                  token: 'JWT'+' ' + token,
+                  token: 'Bearer'+' ' + token,
                   user: {username: user.username, imageUrl: user.imageUrl, email: user.email}
                 })
               }

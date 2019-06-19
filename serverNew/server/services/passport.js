@@ -2,7 +2,7 @@
 import {Strategy as JwtStrategy, ExtractJwt }  from 'passport-jwt';
 
 
-import {User }from '../models';
+import {User} from '../models';
 import authConfig from '../config.js';
                                                          
 //set up for jwt passport strategy
