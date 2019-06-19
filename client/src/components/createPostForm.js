@@ -1,8 +1,8 @@
 //createPostForm.js
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
-
-
+import _ from 'lodash';
+//import database
 class CreatePost extends Component {
     constructor(props){
         super(props)
@@ -18,8 +18,10 @@ this.onHandleSubmit = this.onHandleSubmit.bind(this);
 
 
 // renderPosts(){
-// STUB    
-// }
+// return _.map(collection, (key, post))=>{
+
+// };
+
 
 onInputChange(e){
     this.setState({
