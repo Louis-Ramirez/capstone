@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'; 
-import './App.css';
+import './styles/index.css';
 
 //using our authenticated state value to render proper menu items 
 class navbar extends Component {

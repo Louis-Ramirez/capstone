@@ -1,9 +1,15 @@
 # Backend section
 
+Run npm install to get all the necessary files
 ```
-git clone {this repository url}
+git clone {this master repository url if you had not done so already}
 npm install
 
+```
+
+Make sure you have a database already created
+```
+createdb your-database-name
 ```
 
 In the capstone/serverNew/server/config/config.json
@@ -23,6 +29,13 @@ info stored into the config file
 ```
 
 ### Database Migrations
+install your sequelize if you had not done so
+```
+npm install sequelize pg pg-hstore
+npm install -g sequelize-cli
+```
+
+Run the migrations!
 ```
 sequelize db:migrate
 ```
@@ -32,6 +45,11 @@ To undo migrations
 sequelize db:migrate:undo:all
 ```
 
+### Postman
+Go to postico and make sure you configure your settings accurately before calling the api.
+For instance, if you are trying to create a user, the dropdown menu next to it needs to be POST
+
+After modifying changes, you can use Postico to check your database to see if your data is in it. 
 
 ### Database Schema
 ```
