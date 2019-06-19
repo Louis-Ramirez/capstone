@@ -8,14 +8,14 @@ export default function (ComposedComponent) {
     //before mounting, pushing the history to login 
     componentWillMount() {
       if (this.props.authenticated) {
-        this.props.history.push('/post');
+        this.props.history.push('/home');
       }
     }
 
     //before rendering, pushing history to login 
     componentWillUpdate(nextProps) {
       if (nextProps.authenticated) {
-        this.props.history.push('/post');
+        this.props.history.push('/home');
       }
     }
 

@@ -22,8 +22,9 @@ export function loginAction({email, password}, history){
             //AUTHENTICATED saves token in localStorage 
             localStorage.setItem('user', res.data.token); 
             //history.push() redirects the user to the specific route URL
-            history.push('/post'); 
+            history.push('/home'); 
         } catch (error){
+            console.log(error.message);
             dispatch({
                 type: AUTHENTICATION_ERROR, //action
                 payload: 'invalid email or password'//data 
