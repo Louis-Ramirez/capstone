@@ -10,7 +10,10 @@ class Header extends Component {
 			<div className ="mainHeader">
 				<ul>
 					<div className="headerLinks">
-						<Link to="/"><img src = "https://useiconic.com/open-iconic/svg/puzzle-piece.svg" alt="puzzle piece"/>Jigsaw</Link>
+						<li>
+						<Link to="/"><img src = "https://useiconic.com/open-iconic/svg/puzzle-piece.svg" alt="puzzle piece"/>Jigsaw</Link>	
+						</li>
+						
 						<li>
 							<Link to="/home">
 								<img src="https://useiconic.com/open-iconic/svg/home.svg" class="iconic iconic-lg" alt="home"/>

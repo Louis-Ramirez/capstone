@@ -7,17 +7,20 @@
 	margin: 0px;
 	padding: 1rem;
 }
-ul{
+.mainHeader li {
 	list-style: none;
-	margin: 0;
+	margin:  10px;
+	
 	float: left;
 }
 
-.header-button-container {
+.header-button-container, .headerLinks {
 	display: flex;
+	margin-left: 10px;
 	/*justify-content: space-around;*/
 }
 
 .header-button-container li {
 	margin: 10px;
+
 }
