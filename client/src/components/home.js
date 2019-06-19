@@ -3,7 +3,7 @@
 import React from 'react';
 import like from '../imgs/like.png';
 import dislike from '../imgs/dislike.png'
-import '../styles/home';
+import '../styles/home.css';
 import CreatePostForm from './createPostForm';
 
 

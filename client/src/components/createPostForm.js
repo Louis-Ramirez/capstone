@@ -25,8 +25,8 @@ onHandleSubmit(e){
         title: this.state.title,
         body: this.state.body
     };
-    database.push(post);  //database is supposed to be declared in the backend database
-                             // example: export const database = firebase.database().ref('/posts'); // syntax may differ for posgress
+    /*database.push(post);  //database is supposed to be declared in the backend database
+                             // example: export const database = firebase.database().ref('/posts'); // syntax may differ for posgress */
     this.setState({
         title:'',       // return state to default 
         body:''
