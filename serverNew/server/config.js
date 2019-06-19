@@ -1,7 +1,7 @@
  const authConfig = {
-    secret : "peterpiperpickedaredpepperonasunday"
+    secret : ""
 }
-
+// secret should be a random string
 module.exports = authConfig;
 
 

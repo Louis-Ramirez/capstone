@@ -70,6 +70,12 @@ class Users {
                   user: {username: user.username, imageUrl: user.imageUrl, email: user.email}
                 })
               }
+              else{
+                return res.status(401).json({
+                  success: false,
+                  message: "Authentication Failed: user not found"
+                });
+              }
             })
         })
         .catch(error  => res.status(500).json({
