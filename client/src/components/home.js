@@ -4,7 +4,7 @@ import React from 'react';
 import like from '../imgs/like.png';
 import dislike from '../imgs/dislike.png'
 import '../styles/home.css';
-import CreatePostForm from './createPostForm';
+import Input from './createPostForm';
 
 
 class Home extends React.Component{
