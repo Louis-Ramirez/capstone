@@ -1,9 +1,7 @@
 //createPostForm.js
 import {Redirect} from 'react-router-dom';
 import _ from 'lodash';
-//import database
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+//import database  
 import renderHTML from 'react-render-html';
 import { connect } from 'react-redux';
 import {fetchPostThunk, removePostThunk} from '../thunks';
@@ -55,10 +53,15 @@ render() {
             />
           </div>
           <div className="form-group">      
+              <input
               value={this.state.body}
+              type ="text"
+              name = "body"         
               placeholder="Body"
               onChange={this.onHandleChange}
-
+              ref="body"
+      
+              />
           </div>
           <button className="btn btn-primary">Post</button>
         </form>
