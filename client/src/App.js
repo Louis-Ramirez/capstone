@@ -11,18 +11,18 @@ import Header from './components/header.js'
 class App extends Component {
   render(){
   	return(
-      <div>
   		<Router>
-            <Header/>
-      <Switch>
-        <Route path="/" exact component={LandingPage}/>
-				<Route path="/signup" component={signup}/>
-        <Route path="/login" component={login}/>
-        <Route path="/home" component={Home} />
-        <Route path="/posts" component={Input}/>
-  			</Switch>
+        <div>
+          <Header/>
+          <Switch>
+            <Route path="/" exact component={LandingPage}/>
+    				<Route path="/signup" component={signup}/>
+            <Route path="/login" component={login}/>
+            <Route path="/home" component={Home} />
+            <Route path="/posts" component={Input}/>
+          </Switch>
+        </div>
   		</Router>
-      </div>
   		)
   }
 }

@@ -1,10 +1,12 @@
 //home.js
 
 import React from 'react';
+import {Link} from 'react-router-dom';
 import like from '../imgs/like.png';
 import dislike from '../imgs/dislike.png'
 import '../styles/home.css';
 import Input from './createPostForm';
+import Header from './header.js';
 
 
 class Home extends React.Component{
@@ -95,18 +97,18 @@ class Home extends React.Component{
             </div>
         )});
         return(
+
+            <div>
+            <Header/>
             <div className="three_wrapper" >
                 <div className="three_main">
-<<<<<<< HEAD
-                    <header>
-                        <h1>Welcome</h1>
-                        <Link to="/signout"><button>sign out</button></Link>
-                    </header>
+
+                     {/*<header>
+                         <h1>Welcome</h1>
+                         <Link to="/signout"><button>sign out</button></Link>
+                      </header> */}
                     {this.state.createPost ? <div className={showHide} ><Input/></div>: <div></div>}
-=======
-                    
-                    {this.state.createPost ? <div className={showHide} >{this.TempForm}</div>: <div></div>}
->>>>>>> 3c5185cdf593de4231f6da7121481112feb25558
+
                     {/*<CreatePost show={this.state.createPost} handleClose={this.closeForm} /> */}
                     <div className="three_list">
                         <h3>Recent: </h3>
@@ -115,6 +117,7 @@ class Home extends React.Component{
                 </div>
                 {this.state.sideBar ? this.sideBarView() : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> }
 
+            </div>
             </div>
         )
     }

@@ -16,12 +16,7 @@ class Header extends Component {
 							</Link>
 	
 						<div className="header-button-container">
-				
-							<Link to = "/login">
-								<button className = "logInButton" onClick = {this.handleSubmit} name = "logIn">LOG IN</button>
-							</Link>
-							<Link to = "/signup"><button className = "signUpButton" onClick = {this.handleSubmit} name = "signUp">SIGN UP</button></Link>
-						</div>
+							<Link to = "/signout"><button className ="signUpButton" onClick = {this.handleSubmit} name= "signout">SIGN OUT</button></Link>						</div>
 					</div>
 			</div>
 

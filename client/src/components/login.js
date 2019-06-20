@@ -40,7 +40,7 @@ class login extends Component {
                         type="text"
                         placeholder="Password"
                     />
-                    <button type="submit" className="Login-Btn">Login In</button>
+                    <button type="submit" className="Login-Btn">Login</button>
 
 
                     </form>
