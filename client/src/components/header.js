@@ -8,26 +8,21 @@ class Header extends Component {
 	render(){
 		return(
 			<div className ="mainHeader">
-				<ul>
+				 <Link to="/"><img src = "https://useiconic.com/open-iconic/svg/puzzle-piece.svg" class="inverted" alt="puzzle piece" width="50"/>JIGSAW</Link>
 					<div className="headerLinks">
-						<Link to="/"><img src = "https://useiconic.com/open-iconic/svg/puzzle-piece.svg" alt="puzzle piece" width="50"/>Jigsaw</Link>	
-						<li>
+							
 							<Link to="/home">
-								<img src="https://useiconic.com/open-iconic/svg/home.svg" class="iconic iconic-lg" alt="home"width="50"/>
+								<img src="https://useiconic.com/open-iconic/svg/home.svg" class="iconic iconic-lg inverted" alt="home"width="50"/>
 							</Link>
-						</li>
+	
 						<div className="header-button-container">
-						<li>
+				
 							<Link to = "/login">
-								<button className = "logInButton" onClick = {this.handleSubmit} name = "logIn">Log In</button>
+								<button className = "logInButton" onClick = {this.handleSubmit} name = "logIn">LOG IN</button>
 							</Link>
-						</li>
-						<li>
-							<Link to = "/signup"><button className = "signUpButton" onClick = {this.handleSubmit} name = "signUp">Sign Up</button></Link>
-						</li>
+							<Link to = "/signup"><button className = "signUpButton" onClick = {this.handleSubmit} name = "signUp">SIGN UP</button></Link>
 						</div>
 					</div>
-				</ul>
 			</div>
 
 		)

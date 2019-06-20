@@ -4,23 +4,30 @@
 	height: 50px;
 	font-size: 1.25rem;
 	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
 }
 /*Controls position of buttons*/
 .header-button-container, .headerLinks {
 	display: flex;
 	margin-left: 10px;
-	align-items: center;
-	justify-content: space-around;
+/*	align-items: center;
+*/	justify-content: space-around;
 }
 
 .headerLinks {
 	height: 50px;
-
+	display: inline-flex;
+	width: 70%;
 }
 /*Controls spacing between the buttons*/
-.header-button-container li {
+.header-button-container a {
 	margin: 10px;
 
+}
+
+.inverted {
+	filter: invert(100%);
 }
 
 /*Controls the spacing between the list items, spaces them evenly*/
@@ -29,7 +36,7 @@ li
   width: 33%;
 }
 
-/*Removes bullet from list item*/
+Removes bullet from list item
 ul { list-style: none; }
 
 /*Fix the padding/margin of icons and buttons*/
@@ -38,7 +45,8 @@ ul { list-style: none; }
 a
 {
 	text-decoration: none; 
-	color: black; 
+	color: white; 
 	font-weight: bold;
 	text-align: center;
+	font-family: verdana;
 }
