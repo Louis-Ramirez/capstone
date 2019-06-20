@@ -104,10 +104,13 @@ class Home extends Component{
               {this.state.createPost ? <div className={showHide} >{this.TempForm}</div>: <div></div>}
               <div className="three_list">
                 <p> Recent: </p>
+
                 {this.props.postReducer.map((p) => {
                   return(
                     <div className="three_individual">
-                        <h3>{p.title}</h3>
+                        <Link to={'/post/'+ p.id} style={{textDecoration: 'none'}}>
+                            <span><h3>{p.title}</h3></span>
+                        </Link>
                         <p><img src={like} alt="like" style={ {height: 30}}/>{" "}
                         <img src={dislike} alt="dislike" style={ {height: 30}}/></p>
                     </div>
