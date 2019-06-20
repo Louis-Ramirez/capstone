@@ -1,13 +1,13 @@
 //login.js
 
-import React, { Component } from 'react'; 
-import { Field, reduxForm } from 'redux-form'; 
-import { connect } from 'react-redux'; 
-import { loginAction } from '../actions'; 
+import React, { Component } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { loginAction } from '../actions/authorization'; 
 
 class login extends Component {
     submit = (values) => {
-        this.props.loginAction(values, this.props.history); 
+        this.props.loginAction(values, this.props.history);
     }
 
     errorMessage(){
@@ -16,20 +16,20 @@ class login extends Component {
                 <div className ="info-red">
                     {this.props.errorMessage}
                 </div>
-            ); 
+            );
         }
     }
     render(){
-        //data passed to the view 
-        const { handleSubmit } = this.props; 
-    
+        //data passed to the view
+        const { handleSubmit } = this.props;
+
         return (
             <div className="form-container">
-                <div className="container"> 
+                <div className="container">
                     <h3 className="title">Login</h3>
 
-                    
-                    <form onSubmit={ handleSubmit(this.submit)}> 
+
+                    <form onSubmit={ handleSubmit(this.submit)}>
                     <Field name="email"
                         component="input"
                         type="text"
@@ -42,28 +42,28 @@ class login extends Component {
                     />
                     <button type="submit" className="Login-Btn">Login In</button>
 
-                    
+
                     </form>
                     {this.errorMessage()}
                 </div>
             </div>
 
-        ); 
+        );
     }
 }
 
 function mapStateToProps(state) {
-    return { errorMessage: state.auth.error }; 
+    return { errorMessage: state.auth.error };
 }
 
 //to make the sign in form communicate with the store, needs to wrapped around reduxForm
 //
 const reduxFormLogin = reduxForm({
     form:'login'
-}) (login); //the class 
+}) (login); //the class
 
-//reducer as formReducer from 'redux-form' 
-//which we can import into the rootReducer 
+//reducer as formReducer from 'redux-form'
+//which we can import into the rootReducer
 
-export default connect(mapStateToProps, {loginAction})(reduxFormLogin); 
+export default connect(mapStateToProps, {loginAction})(reduxFormLogin);
 //to use the state as props (we need i.e state.auth.error)
