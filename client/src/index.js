@@ -4,7 +4,7 @@ import './styles/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Navbar from './navbar';
-import reducers from './reducers'
+import {rootReducer} from './reducers/index' // import function and rootReducers from reducers to create store
 import reduxThunk from 'redux-thunk';
 import { AUTHENTICATED } from './actions/authorization';
 import requireAuth from './components/authComponents.js/require_auth';
@@ -21,11 +21,13 @@ import { applyMiddleware, createStore} from "redux";
 import { Provider } from 'react-redux';
 
 
-//create the store using middleware
-const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
+// create the store using middleware
+// const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
+//
+// // allowing reducer component to pass
+// const store = createStoreWithMiddleware(rootReducer);
 
-//allowing reducer component to pass
-const store = createStoreWithMiddleware(reducers);
+const store = createStore(rootReducer,applyMiddleware(reduxThunk))
 
 const user = localStorage.getItem('user');
 // if token is saved in localStorage, state needs to be changed to authenticated before rending
