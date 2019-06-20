@@ -47,6 +47,5 @@ ReactDOM.render(
         </Switch>
     </Router>
 </Provider> ,
-    //querySelector() returns the first element that matches the specified 
     document.getElementById('root')
 ); 

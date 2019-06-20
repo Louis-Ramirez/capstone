@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'; 
 import { reducer as formReducer } from 'redux-form'; 
+import { reducer as signUpReducer } from 'redux-form'; 
 import authReducer from './auth_reducer'; 
-import signUpReducer from './signUp';
+
 
 const rootReducer = combineReducers({
     form: formReducer, //returns login
