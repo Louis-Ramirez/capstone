@@ -36,11 +36,8 @@ if(user) {
 ReactDOM.render(
 //passing store to be able to use connect() calls
 <Provider store={store}>
-
     <Router>
-
         <Switch>
-
             <Route exact path="/" component = {LandingPage} />
             <Route exact path="/signup" component = {noRequireAuth(SignUp)} />
             <Route exact path="/login" component = {noRequireAuth(login)} />

@@ -1,13 +1,18 @@
-import { combineReducers } from 'redux'; 
-import { reducer as formReducer } from 'redux-form'; 
-import { reducer as signUpReducer } from 'redux-form'; 
-import authReducer from './auth_reducer'; 
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+import { reducer as signUpReducer } from 'redux-form';
+import authReducer from './auth_reducer';
 
 
 const rootReducer = combineReducers({
     form: formReducer, //returns login
-    auth: authReducer , //handles whether user is authenticated 
+    auth: authReducer , //handles whether user is authenticated
     signUp: signUpReducer
-}); 
+});
 
-export default rootReducer; 
+export default rootReducer;
+
+
+// my file
+// export { default as postReducer } from '../store/utilities/actionPost';
+// these reducers are then imported into store/index.js
