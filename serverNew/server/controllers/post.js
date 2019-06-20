@@ -5,6 +5,7 @@ const { Post, Comment,User } = model;
 class Posts {
   // create method for posts
   static create(req, res) {
+    console.log("-----my request----", req);
     const { title, body } = req["query"]
     const { userId } = req.params
     return Post
