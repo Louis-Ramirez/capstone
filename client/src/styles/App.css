@@ -64,7 +64,7 @@
   justify-content: center;
 }
 
-input[type=text], select {
+input[type=text], input[type=password], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -73,6 +73,7 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 .Login-Btn{
   width: 50%;
   padding: 12px 20px;
@@ -80,9 +81,15 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
   font-family: verdana;
+  display: inline-flex;
+  text-align: center;
   /*float: left;
-  position: relative;
-  margin-left: 45px;*/
+  position: relative;*/
+  /*margin-left: 45px;*/
+}
+.btnWrapper{
+  display:flex;
+  justify-content: center;
 }
 .Login-Btn:hover {
   background-color: #45a049;
@@ -90,9 +97,4 @@ input[type=text], select {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #f2f2f2;
-}
-form + button {
-  display: flex;
-  align-items: center;
-
 }

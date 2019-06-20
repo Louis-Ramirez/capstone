@@ -38,7 +38,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-    font-family: verdana;
+  font-family: verdana;
 }
 .signUpButton:hover, .logInButton:hover {
   border: 1px solid #ccc;
