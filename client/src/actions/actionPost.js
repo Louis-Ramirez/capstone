@@ -48,8 +48,9 @@ export const fetchAllPostsThunk = () => (dispatch) => {
 }
 
 export const addNewPostThunk = (post, userId) => (dipatch) => {
+  // http://127.0.0.1:8080/api/users/1/posts?title=testing title&body=dink y hink y alalalalla
   return axios
-    .post("http://127.0.0.1:8080/api/users/1/posts")
+    .post(`http://127.0.0.1:8080/api/users/${userId}/posts?title=${post.title}&body=${post.body}`)
     .then(response => dipatch(addNewPost(response)))
     .catch(err => console.log(err));
 }

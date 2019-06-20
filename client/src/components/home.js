@@ -20,6 +20,8 @@ class Home extends Component{
           createPost: false,
           sideBar: false
       }
+
+      this.addPost = this.addPost.bind(this);
   }
 
   componentDidMount() {
@@ -57,19 +59,36 @@ class Home extends Component{
       this.setState({sideBar: false});
   }
 
+  addPost(){
+    this.setState({createPost: false});
+    // http://127.0.0.1:8080/api/users/1/posts?title=testing title&body=dink y hink y alalalalla
+
+    console.log(this.refs.postTitle.value);
+    // let post = {
+    //   title: this.refs.postTitle.value,
+    //   body: this.refs.postBody.value
+    // }
+    //
+    // console.log("------sending this post to thunk-------", post);
+    // console.log("---- this the id----", this.state.id);
+    //
+    // this.addNewPost(post, this.state.id);
+
+  }
+
   TempForm = (
       <div  className="three_form" >
-      <form  onSubmit={this.closeForm} className="modal-main" >
-          <label>Title</label>
-          <br />
-          <input type="text" name="title" />
-          <br/>
-          <label>Body</label>
-          <br />
-          <input type="text" name="body" id="three_body" />
-          <br/>
-          <input type="submit" value="submit" onClick={this.addNewPost}/>
-      </form>
+        <form  onSubmit={this.addPost} className="modal-main" >
+            <label>Title</label>
+            <br />
+            <input type="text" name="title"/>
+            <br/>
+            <label>Body</label>
+            <br />
+            <input type="text" name="body" id="three_body"/>
+            <br/>
+            <input type="submit" value="submit"/>
+        </form>
       </div>
   )
 
