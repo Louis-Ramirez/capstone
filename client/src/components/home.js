@@ -1,10 +1,11 @@
 //home.js
 
 import React from 'react';
+import {Link} from 'react-router-dom';
 import like from '../imgs/like.png';
 import dislike from '../imgs/dislike.png'
-import '../styles/home';
-import CreatePostForm from './createPostForm';
+import '../styles/home.css';
+import Input from './createPostForm';
 
 
 class Home extends React.Component{
@@ -77,6 +78,7 @@ class Home extends React.Component{
                 <div className="three_main">
                     <header>
                         <h1>Welcome</h1>
+                        <Link to="/signout"><button>sign out</button></Link>
                     </header>
                     {this.state.createPost ? <div className={showHide} >{this.TempForm}</div>: <div></div>}
                     {/*<CreatePost show={this.state.createPost} handleClose={this.closeForm} /> */}

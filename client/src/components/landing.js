@@ -50,8 +50,8 @@ class LandingPage extends Component {
 							</div>
 						<div className="signUpForm">
 							<h2>Join Jigsaw today!</h2>
-							<button className = "signUpButton" onClick = {this.handleSubmit} name = "signUp">Sign Up</button>
-							<Link to = "/signup"><button className = "logInButton" onClick = {this.handleSubmit} name = "logIn">Log in</button></Link>
+							<Link to="/signup"><button className = "signUpButton" onClick = {this.handleSubmit} name = "signUp">Sign Up</button></Link>
+							<Link to = "/login"><button className = "logInButton" onClick = {this.handleSubmit} name = "logIn">Log in</button></Link>
 						</div>
 					</div>
 					
