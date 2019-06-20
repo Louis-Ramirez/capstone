@@ -13,7 +13,9 @@ class Home extends Component{
   constructor(props){
       super(props);
       this.state={
+          id: '',
           username: '',
+          email: '',
           imageUrl: '',
           createPost: false,
           sideBar: false
@@ -23,6 +25,20 @@ class Home extends Component{
   componentDidMount() {
     console.log("in mount ");
     this.props.getAllPost();
+    if(this.props.history.location.state === undefined){
+      console.log("user not sent");
+    }
+    else {
+      let user = this.props.history.location.state.user;
+      console.log(user);
+      this.setState({...this.state,
+        id: user.id,
+        username: user.username,
+        imageUrl: user.imageUrl,
+        email: user.email
+      });
+   }
+   console.log("---- after setting user id -----", this.state.id)
   }
 
   renderForm = () =>{
@@ -52,7 +68,7 @@ class Home extends Component{
           <br />
           <input type="text" name="body" id="three_body" />
           <br/>
-          <input type="submit" value="submit"/>
+          <input type="submit" value="submit" onClick={this.addNewPost}/>
       </form>
       </div>
   )
@@ -72,7 +88,8 @@ class Home extends Component{
 
   render(){
     const showHide = this.state.createPost ? "three_form display-block" : "three_form  display-none";
-
+    console.log("--- getting userId", this.props);
+    console.log("...history..", this.state)
     if(this.props.postReducer.length === 0){
       return(
           <div className="three_wrapper">
