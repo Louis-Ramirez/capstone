@@ -40,7 +40,9 @@ module.exports = (sequelize, DataTypes) => {
         },
       }
     },
-    imageUrl: DataTypes.STRING
+    imageUrl:{
+    type: DataTypes.STRING,
+    defaultValue: "http://thc.nic.in/images/empty_profile.png"}
   }, {});
   User.associate = function(models) {
     // associations can be defined here
