@@ -14,19 +14,10 @@ class CreatePost extends Component {
      this.state = {
          title:'',
          body:'',
-         posts:{}
      };
 //bind
 this.onInputChange = this.onInputChange.bind(this);    
 this.onHandleSubmit = this.onHandleSubmit.bind(this);
-}
-//life cycle
-componentDidMount(){
-    database.on('value', snapshot => {
-        this.setState({
-            posts: snapshot.val()
-        });
-    });
 }
 
 onHandleChange(e){
@@ -63,14 +54,11 @@ render() {
               className="form-control"
             />
           </div>
-          <div className="form-group">
-            <ReactQuill
-              modules={CreatePost.modules}
-              formats={CreatePost.formats}
+          <div className="form-group">      
               value={this.state.body}
               placeholder="Body"
               onChange={this.onHandleChange}
-            />
+
           </div>
           <button className="btn btn-primary">Post</button>
         </form>
@@ -79,48 +67,20 @@ render() {
   }
 }
 
-// CreatePost.modules = {
-//     toolbar: [
-//       // [{ header: '1' }, { header: '2' }, { font: [] }],
-//       // [{ size: [] }],
-//       // ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-//       // [{ list: 'ordered' }, { list: 'bullet' }],
-//       // ['link', 'image', 'video'],
-//       // ['clean'],
-//       // ['code-block']
-//     ]
-//   };
-  
-//   CreatePost.formats = [
-//     // 'header',
-//     // 'font',
-//     // 'size',
-//     // 'bold',
-//     // 'italic',
-//     // 'underline',
-//     // 'strike',
-//     // 'blockquote',
-//     // 'list',
-//     // 'bullet',
-//     // 'link',
-//     // 'image',
-//     // 'video',
-//     // 'code-block'
-//   ];
-//ferchplayer are things that you can call in this component everything after dispatch is being called in the utitiltites folder
-  function mapDispatchtoProps(dispatch) {
-    return {
-      fetchPlayer: (lastName, firstName) => dispatch(fetchPlayerThunk(lastName, firstName)),
-      removePlayer: () => dispatch(removePlayerThunk())
-    }
+// Map state to props;
+function mapState(state) {
+  return {
+    currentPost: state.currentPost
   }
+}
+
 
   function mapDispatch(dispatch) {
     return {
-      fetchPlayer: (lastName, firstName) => dispatch(fetchPlayerThunk(lastName, firstName)),
-      removePlayer: () => dispatch(removePlayerThunk())
+      fetchPost: (Title, Body) => dispatch(fetchPostThunk(Title, Body)),
+      removePost: () => dispatch(removePostThunk())
     }
   }
   
 
-  export default CreatePost;
+  export default(mapState, mapDispatch)(CreatePost);

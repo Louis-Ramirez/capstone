@@ -23,7 +23,7 @@ const fetchPost = (post) => {
 
 
 // THUNK CREATORS;
-export const fetchPostThunk = (lastName, firstName) => (dispatch) => {
+export const fetchPostThunk = (Title, Body) => (dispatch) => {
   return axios
     // .get(`https://nba-players.herokuapp.com/players-stats/${lastName}/${firstName}`)
     // .then(res => res.data)
