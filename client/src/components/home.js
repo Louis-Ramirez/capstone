@@ -18,7 +18,7 @@ class Home extends React.Component{
             sideBar: false
         }
     }
-    
+
     renderForm = () =>{
         this.setState({createPost: true});
     }
@@ -60,7 +60,7 @@ class Home extends React.Component{
         </form>
         </div>
     )
-    
+
 
     render(){
         const showHide = this.state.createPost ? "three_form display-block" : "three_form  display-none";
@@ -68,7 +68,7 @@ class Home extends React.Component{
         const postList = questions.map(post => {
             return(
             <div className="three_individual">
-                {post}  
+                {post}
                 <p><img src={like} alt="like" style={ {height: 30}}/>{" "}
                 <img src={dislike} alt="dislike" style={ {height: 30}}/></p>
             </div>
