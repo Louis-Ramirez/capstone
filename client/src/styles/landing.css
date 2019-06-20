@@ -31,12 +31,12 @@
   text-align: center;
 }
 
+
 .signUpButton, .logInButton {
 	width: 100%;
   padding: 12px 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin: 10px;
   box-sizing: border-box;
     font-family: verdana;
 }

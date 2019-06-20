@@ -8,11 +8,11 @@ class Header extends Component {
 	render(){
 		return(
 			<div className ="mainHeader">
-				 <Link to="/"><img src = "https://useiconic.com/open-iconic/svg/puzzle-piece.svg" class="inverted" alt="puzzle piece" width="50"/>JIGSAW</Link>
+				 <Link to="/"><img src = "https://useiconic.com/open-iconic/svg/puzzle-piece.svg" class="iconic iconic-lg" alt="puzzle piece" width="50"/></Link>
 					<div className="headerLinks">
 							
 							<Link to="/home">
-								<img src="https://useiconic.com/open-iconic/svg/home.svg" class="iconic iconic-lg inverted" alt="home"width="50"/>
+								<img src="https://useiconic.com/open-iconic/svg/home.svg" class="iconic iconic-lg inverted" alt="home"width="40"/>
 							</Link>
 	
 						<div className="header-button-container">
