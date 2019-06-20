@@ -37,6 +37,8 @@ onHandleSubmit(e){
 }
 render() {
     return(
+      <link rel="stylesheet" type="text/css" href="../styles/cpstyle.css"></link>
+        <nav><h1 className = "brand">JIGSAW</h1></nav>
         <div className="container">
         <form onSubmit={this.onHandleSubmit}>
           <div className="form-group">
@@ -63,7 +65,8 @@ render() {
       
               />
           </div>
-          <button className="btn btn-primary">Post</button>
+          <br></br>
+          <button className="btn-btn-primary">Post</button>
         </form>
       </div>
     );   

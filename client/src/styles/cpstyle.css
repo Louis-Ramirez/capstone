@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    background-color: teal;
+    justify-content: center;   
+    height:auto;
+}
+nav{
+   display:flex;
+   justify-content: center;
+    background-color: teal;
+    color: white;
+}
+body{
+    background-color: teal;
+}
+
+.brand{
+    display:flex;
+    justify-content: center;
+}
+.title-control{
+    height:50px;
+    width: 300px;
+}
+.form-group{
+    /* height:100px;
+    width: 300px; */
+}
+.body-control{
+    height: 100px;
+    width: 300px;
+}
+.btn-btn-primary{
+    width:300px;  
+    background-color: maroon;
+    border: none;
+    color:white;
+}
