@@ -27,25 +27,28 @@ class SignUp extends React.Component {
         return(
          <div className="form-container">
             <div className="container">
-              <h3 className="title">Sign Up</h3>
+                <img src = "https://useiconic.com/open-iconic/svg/puzzle-piece.svg" class="iconic iconic-lg" alt="puzzle piece" width="50"/>
+                <h3 className="title">SIGN UP</h3>
 
             <form onSubmit={handleSubmit(this.submit)}>
                 <Field name="username"
                         component="input"
                         type="text"
                         placeholder="Username"
-                    />
-                    <Field name="email"
-                        component="input"
-                        type="text"
-                        placeholder="Email"
-                    />
-                    <Field name="password"
-                        component="input"
-                        type="password"
-                        placeholder="Password"
-                    />
-                <button type="submit" className="Login-Btn">Sign Up</button>
+                    /><br/>
+                <Field name="email"
+                    component="input"
+                    type="text"
+                    placeholder="Email"
+                /><br/>
+                <Field name="password"
+                    component="input"
+                    type="password"
+                    placeholder="Password"
+                /><br/>
+                <div className="btnWrapper">
+                    <button type="submit" className="Login-Btn">SIGN UP</button>
+                </div>
             </form>
             {this.Message()}
                 </div>
