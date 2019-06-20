@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { signoutAction } from '../actions'; 
 
 
-class Signout extends Component {
+class SignOut extends Component {
     componentDidMount() {
-        this.props.signoutAction(); 
+        this.props.signoutAction(this.props.history); 
 }
 
     render() {
@@ -13,7 +13,11 @@ class Signout extends Component {
     }
 }
 
-export default connect(null, signoutAction); 
+function mapStateToProps(state){
+    return{authenicated: state.auth.authenticated};
+}
+
+export default connect(mapStateToProps, {signoutAction})(SignOut); 
 
 // const connectedSignoutPage = connect(mapStateToProps)(Signout);
 // export { connectedSignoutPage as Signout }; 
