@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import Navbar from './navbar';
 import reducers from './reducers'
 import reduxThunk from 'redux-thunk';
-import { AUTHENTICATED } from './actions';
+import { AUTHENTICATED } from './actions/authorization';
 import requireAuth from './components/authComponents.js/require_auth';
 import noRequireAuth from './components/authComponents.js/no_require_auth';
 import React, { Component } from 'react';

@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { loginAction } from '../actions'; 
+import { loginAction } from '../actions/authorization'; 
 
 class login extends Component {
     submit = (values) => {
