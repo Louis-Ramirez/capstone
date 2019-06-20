@@ -21,6 +21,7 @@ export default (app) => {
 
   app.post('/api/users/:userId/posts', Posts.create); // API route for user to create a Post from controllers
   app.get('/api/posts', authentication , Posts.list);
+  app.get('/api/posts/:postId', Posts.getPostById);
   app.put('/api/posts/:postId', Posts.modify);
   app.delete('/api/posts/:postId', Posts.delete);
 
