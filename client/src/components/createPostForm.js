@@ -2,14 +2,11 @@ import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {addNewPostThunk} from '../actions/actionPost';
+import "../styles/home.css";
 
 class CreatePost extends Component {
   constructor(props){
     super(props);
-    this.state={
-        id: ''
-    }
-
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
   }
 
@@ -19,12 +16,18 @@ class CreatePost extends Component {
           title: this.refs.postTitle.value,
           body: this.refs.postBody.value
       };
+
+      console.log("----- sending out this post ------- ",post);
+      console.log("----- our userId-----", this.props);
+      this.props.addPost(post, this.props.userId);
+      // <iframe src={this.props.gifUrl} key={this.props.id} className="giphy-embed" allowFullScreen></iframe>
   }
 
   render() {
+    console.log(this.props.history);
       return(
-        <div className="container">
-          <form onSubmit={this.onHandleSubmit}>
+        <div className="three_individual">
+          <form onSubmit={this.onHandleSubmit} >
             <div className="form-group">
               <input
                 type="text"
@@ -43,7 +46,7 @@ class CreatePost extends Component {
 
                 />
             </div>
-            <button className="btn btn-primary">Post</button>
+            <button className="btn btn-primary">Save</button>
           </form>
       </div>
     );
@@ -59,7 +62,7 @@ function mapState(state) {
 }
 function mapDispatch(dispatch) {
   return {
-    fetchPost: (post, userId) => dispatch(addNewPostThunk(post, userId)),
+    addPost: (post, userId) => dispatch(addNewPostThunk(post, userId)),
   }
 }
 
