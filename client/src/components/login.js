@@ -26,6 +26,7 @@ class login extends Component {
         return (
             <div className="form-container">
                 <div className="container">
+                    <img src = "https://useiconic.com/open-iconic/svg/puzzle-piece.svg" class="iconic iconic-lg" alt="puzzle piece" width="50"/>
                     <h3 className="title">Login</h3>
 
 
@@ -34,12 +35,12 @@ class login extends Component {
                         component="input"
                         type="text"
                         placeholder="Username"
-                    />
+                    /><br/>
                     <Field name="password"
                         component="input"
                         type="text"
                         placeholder="Password"
-                    />
+                    /><br/>
                     <button type="submit" className="Login-Btn">Login</button>
 
 
