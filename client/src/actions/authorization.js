@@ -26,6 +26,7 @@ export function loginAction({ email, password}, history){
             localStorage.setItem('user', res.data.token);
             //history.push() redirects the user to the specific route URL
             history.push('/home',{user: res.data.user});
+
         } catch (error){
             dispatch({
                 type: AUTHENTICATION_ERROR, //action
