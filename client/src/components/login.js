@@ -26,7 +26,8 @@ class login extends Component {
         return (
             <div className="form-container">
                 <div className="container">
-                    <h3 className="title">Login</h3>
+                    <img src = "https://useiconic.com/open-iconic/svg/puzzle-piece.svg" class="iconic iconic-lg" alt="puzzle piece" width="50"/>
+                    <h3 className="title">Log In</h3>
 
 
                     <form onSubmit={ handleSubmit(this.submit)}>
@@ -34,14 +35,15 @@ class login extends Component {
                         component="input"
                         type="text"
                         placeholder="Username"
-                    />
+                    /><br/>
                     <Field name="password"
                         component="input"
                         type="text"
                         placeholder="Password"
-                    />
-                    <button type="submit" className="Login-Btn">Login In</button>
-
+                    /><br/>
+                    <div className="btnWrapper">
+                        <button type="submit" className="Login-Btn">LOG IN</button>
+                    </div>
 
                     </form>
                     {this.errorMessage()}
