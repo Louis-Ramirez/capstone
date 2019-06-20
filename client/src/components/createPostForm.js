@@ -1,92 +1,70 @@
-//createPostForm.js
+import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
-import _ from 'lodash';
-//import database  
-import renderHTML from 'react-render-html';
-import { connect } from 'react-redux';
-import {fetchPostThunk, removePostThunk} from '../thunks';
+import {connect} from 'react-redux';
+import {addNewPostThunk} from '../actions/actionPost';
+import "../styles/home.css";
 
 class CreatePost extends Component {
-    constructor(props){
-     super(props); 
-     this.state = {
-         title:'',
-         body:'',
-     };
-//bind
-this.onInputChange = this.onInputChange.bind(this);    
-this.onHandleSubmit = this.onHandleSubmit.bind(this);
-}
+  constructor(props){
+    super(props);
+    this.onHandleSubmit = this.onHandleSubmit.bind(this);
+  }
 
-onHandleChange(e){
-    this.setState({ body: e });
-    console.log(this.state.body);
-}
+  onHandleSubmit(e){
+      e.preventDefault();
+      const post ={
+          title: this.refs.postTitle.value,
+          body: this.refs.postBody.value
+      };
 
-onHandleSubmit(e){
-    e.preventDefault();
-    const post ={
-        title: this.state.title,
-        body: this.state.body
-    };
-    //database.push(post);  call my action 
-    this.setState({
-        title:'',       // return state to default 
-        body:''
-    });
-}
-render() {
-    return(
-      <link rel="stylesheet" type="text/css" href="../styles/cpstyle.css"></link>
-        <nav><h1 className = "brand">JIGSAW</h1></nav>
-        <div className="container">
-        <form onSubmit={this.onHandleSubmit}>
-          <div className="form-group">
-            <input
-              value={this.state.title}
-              type="text"
-              name="title"
-              placeholder="Title"
-              onChange={e => {
-                this.setState({ title: e.target.value });
-              }}
-              ref="title"
-              className="form-control"
-            />
-          </div>
-          <div className="form-group">      
+      console.log("----- sending out this post ------- ",post);
+      console.log("----- our userId-----", this.props);
+      this.props.addPost(post, this.props.userId);
+      // <iframe src={this.props.gifUrl} key={this.props.id} className="giphy-embed" allowFullScreen></iframe>
+  }
+
+  render() {
+    console.log(this.props.history);
+      return(
+        <div className="three_individual">
+          <form onSubmit={this.onHandleSubmit} >
+            <div className="form-group">
               <input
-              value={this.state.body}
-              type ="text"
-              name = "body"         
-              placeholder="Body"
-              onChange={this.onHandleChange}
-              ref="body"
-      
+                type="text"
+                name="title"
+                placeholder="Enter title for your post"
+                ref="postTitle"
+                className="form-control"
               />
-          </div>
-          <br></br>
-          <button className="btn-btn-primary">Post</button>
-        </form>
+            </div>
+            <div className="form-group">
+                <input
+                type ="text"
+                name = "body"
+                placeholder="Enter description about post"
+                ref="postBody"
+
+                />
+            </div>
+            <button className="btn btn-primary">Save</button>
+          </form>
       </div>
-    );   
+    );
   }
 }
+
 
 // Map state to props;
 function mapState(state) {
   return {
-    currentPost: state.currentPost
+    currentPost: state.post
+  }
+}
+function mapDispatch(dispatch) {
+  return {
+    addPost: (post, userId) => dispatch(addNewPostThunk(post, userId)),
   }
 }
 
 
-  function mapDispatch(dispatch) {
-    return {
-      fetchPost: (Title, Body) => dispatch(fetchPostThunk(Title, Body)),
-      removePost: () => dispatch(removePostThunk())
-    }
-  }
-  
-
-  export default(mapState, mapDispatch)(CreatePost);
+export default connect(mapState, mapDispatch)(CreatePost);

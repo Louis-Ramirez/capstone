@@ -1,10 +1,11 @@
 import model from '../models';
 
-const { Post } = model;
+const { Post, Comment,User } = model;
 
 class Posts {
   // create method for posts
   static create(req, res) {
+    console.log("-----my request----", req);
     const { title, body } = req["query"]
     const { userId } = req.params
     return Post
@@ -25,6 +26,17 @@ class Posts {
       .then(p =>
         response.status(200).send(p)
       );
+  }
+
+  static getPostById(req, response){
+    return Post
+      .findOne({
+        where: {id: req.params.postId},
+        include: {model: Comment}
+      })
+      .then((p) => {
+        response.status(200).send(p)
+      })
   }
 
 
