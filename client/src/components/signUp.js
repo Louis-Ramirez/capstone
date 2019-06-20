@@ -1,6 +1,6 @@
 //signUp.js
 import React from 'react';
-import { Field, reduxForm } from 'redux-form'; 
+import { Field, reduxForm } from 'redux-form';
 import {connect} from 'react-redux';
 import {signUpAction} from '../actions';  
 
@@ -17,16 +17,16 @@ class SignUp extends React.Component {
                 <div className ="info-red">
                     {this.props.message}
                 </div>
-            ); 
+            );
         }
     }
 
     render(){
-        const { handleSubmit } = this.props; 
+        const { handleSubmit } = this.props;
 
         return(
          <div className="form-container">
-            <div className="container"> 
+            <div className="container">
               <h3 className="title">Sign Up</h3>
 
             <form onSubmit={handleSubmit(this.submit)}>
@@ -65,4 +65,3 @@ const reduxFormSignUp = reduxForm({
 }) (SignUp);
 
 export default connect(mapStateToProps, {signUpAction})(reduxFormSignUp);
-
