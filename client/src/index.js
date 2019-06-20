@@ -9,7 +9,7 @@ import requireAuth from './components/authComponents.js/require_auth';
 import noRequireAuth from './components/authComponents.js/no_require_auth'; 
 import React, { Component } from 'react';
 import LandingPage from './components/landing.js';
-import signUp from './components/signUp'; 
+import SignUp from './components/signUp'; 
 import login from './components/login.js';
 import Home from './components/home.js';
 import Signout from './components/signout';
@@ -40,13 +40,12 @@ ReactDOM.render(
         <Switch>
             
             <Route exact path="/" component = {LandingPage} /> 
-            <Route exact path="/signup" component = {noRequireAuth(signUp)} /> 
+            <Route exact path="/signup" component = {noRequireAuth(SignUp)} /> 
             <Route exact path="/login" component = {noRequireAuth(login)} /> 
             <Route path="/signout" component={Signout} />
             <Route exact path="/home" component = {requireAuth(Home)} /> 
         </Switch>
     </Router>
 </Provider> ,
-    //querySelector() returns the first element that matches the specified 
     document.getElementById('root')
 ); 

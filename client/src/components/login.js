@@ -30,7 +30,7 @@ class login extends Component {
 
                     
                     <form onSubmit={ handleSubmit(this.submit)}> 
-                    <Field name="username"
+                    <Field name="email"
                         component="input"
                         type="text"
                         placeholder="Username"
