@@ -23,7 +23,7 @@ class App extends Component {
 			   <Route exact path="/login" component={noRequireAuth(login)}/>
          <Route exact path="/signout" component={noRequireAuth(SignOut)}/>
          <Route exact path="/createpost" component ={CreatePost}/>
-         <Route exact path="/post/:id" component={Post}/>
+         <Route exact path="/post/:id/:userId" component={Post}/>
   			</Switch>
   		</Router>
   		)

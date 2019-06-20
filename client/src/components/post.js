@@ -14,6 +14,7 @@ class Post extends React.Component{
         super(props);
         this.state={
             sideBar: false,
+            comments: []
         }
     }
 
@@ -33,7 +34,14 @@ class Post extends React.Component{
       }
     }
 
+    addComment = (event) => {
+      event.preventDefault();
+      console.log(this.name.comment.value);
+          
+    }
+
     componentDidMount() {
+      console.log(this.props);
       this.props.getPostById(this.props.match.params.id);
     }
 
@@ -78,9 +86,9 @@ class Post extends React.Component{
                     </div>
 
                     <div className="five_postCommentContainer">
-                      <input type="text" name="commentBox" className="five_postCommentBox" placeholder="Insert comments here"/>
+                      <input type="text" name="commentBox" className="five_postCommentBox" placeholder="Insert comments here" name="comment"/>
                       <div className="five_buttonBox">
-                        <button className="five_commentButton">Submit</button>
+                        <button className="five_commentButton"onClick={this.addComment}>Submit</button>
                       </div>
                     </div>
                     {this.setComment()}
@@ -95,6 +103,7 @@ class Post extends React.Component{
     }
 
     render(){
+      console.log(this.props.match.params.id);
       if(this.props.postReducer !== 0 && this.props.postReducer.data !== undefined){
         return this.renderPostView();
       } else {

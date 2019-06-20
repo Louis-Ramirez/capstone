@@ -133,7 +133,7 @@ class Home extends Component{
                 {this.props.postReducer.map((p) => {
                   return(
                     <div className="three_individual">
-                        <Link to={'/post/'+ p.id} style={{textDecoration: 'none'}}>
+                        <Link to={'/post/'+ p.id +'/'+ this.state.id} style={{textDecoration: 'none'}}>
                             <span><h3>{p.title}</h3></span>
                         </Link>
                         <p><img src={like} alt="like" style={ {height: 30}}/>{" "}
