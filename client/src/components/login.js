@@ -21,7 +21,8 @@ class login extends Component {
     }
     render(){
         //data passed to the view 
-        const { handleSubmit } = this.props; 
+        // const { handleSubmit } = this.props; 
+        // console.log("Handle Submit is ======>>>",typeof handleSubmit)
     
         return (
             <div className="form-container">
@@ -58,12 +59,12 @@ function mapStateToProps(state) {
 
 //to make the sign in form communicate with the store, needs to wrapped around reduxForm
 //
-const reduxFormLogin = reduxForm({
-    form:'login'
-}) (login); //the class 
+// const reduxFormLogin = reduxForm({
+//     form:'login'
+// }) (login); //the class 
 
 //reducer as formReducer from 'redux-form' 
 //which we can import into the rootReducer 
 
-export default connect(mapStateToProps, {loginAction})(reduxFormLogin); 
+export default connect(mapStateToProps, {loginAction})(login); 
 //to use the state as props (we need i.e state.auth.error)
