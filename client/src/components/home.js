@@ -97,6 +97,7 @@ class Home extends Component{
             <div className="three_main">
               <header>
                 <h1>Welcome</h1>
+                <Link to="/signout"><button>sign out</button></Link>
               </header>
 
               {this.state.createPost ? <div className={showHide} >{this.TempForm}</div>: <div></div>}
@@ -116,6 +117,7 @@ class Home extends Component{
             <div className="three_main">
               <header>
                 <h1>Welcome</h1>
+                <Link to="/signout"><button>sign out</button></Link>
               </header>
 
               {this.state.createPost ? <div className={showHide} >{this.TempForm}</div>: <div></div>}
