@@ -5,6 +5,8 @@ import _ from 'lodash';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import renderHTML from 'react-render-html';
+import { connect } from 'react-redux';
+import {fetchPostThunk, removePostThunk} from '../thunks';
 
 class CreatePost extends Component {
     constructor(props){
@@ -27,19 +29,6 @@ componentDidMount(){
     });
 }
 
-//  // render posts 
-//  renderPosts() {
-//     return _.map(this.state.posts, (post, key) => {
-//       return (
-//         <div key={key}>
-//           <h2>{post.title}</h2>
-//           <p>{renderHTML(post.body)}</p>
-//         </div>
-//       );
-//     });
-//   }
-
-
 onHandleChange(e){
     this.setState({ body: e });
     console.log(this.state.body);
@@ -51,7 +40,7 @@ onHandleSubmit(e){
         title: this.state.title,
         body: this.state.body
     };
-    database.push(post);  
+    //database.push(post);  call my action 
     this.setState({
         title:'',       // return state to default 
         body:''
@@ -85,40 +74,53 @@ render() {
           </div>
           <button className="btn btn-primary">Post</button>
         </form>
-        <br />
-        {this.renderPosts()}
       </div>
     );   
   }
 }
 
-CreatePost.modules = {
-    toolbar: [
-      [{ header: '1' }, { header: '2' }, { font: [] }],
-      [{ size: [] }],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ list: 'ordered' }, { list: 'bullet' }],
-      ['link', 'image', 'video'],
-      ['clean'],
-      ['code-block']
-    ]
-  };
+// CreatePost.modules = {
+//     toolbar: [
+//       // [{ header: '1' }, { header: '2' }, { font: [] }],
+//       // [{ size: [] }],
+//       // ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+//       // [{ list: 'ordered' }, { list: 'bullet' }],
+//       // ['link', 'image', 'video'],
+//       // ['clean'],
+//       // ['code-block']
+//     ]
+//   };
   
-  CreatePost.formats = [
-    'header',
-    'font',
-    'size',
-    'bold',
-    'italic',
-    'underline',
-    'strike',
-    'blockquote',
-    'list',
-    'bullet',
-    'link',
-    'image',
-    'video',
-    'code-block'
-  ];
+//   CreatePost.formats = [
+//     // 'header',
+//     // 'font',
+//     // 'size',
+//     // 'bold',
+//     // 'italic',
+//     // 'underline',
+//     // 'strike',
+//     // 'blockquote',
+//     // 'list',
+//     // 'bullet',
+//     // 'link',
+//     // 'image',
+//     // 'video',
+//     // 'code-block'
+//   ];
+//ferchplayer are things that you can call in this component everything after dispatch is being called in the utitiltites folder
+  function mapDispatchtoProps(dispatch) {
+    return {
+      fetchPlayer: (lastName, firstName) => dispatch(fetchPlayerThunk(lastName, firstName)),
+      removePlayer: () => dispatch(removePlayerThunk())
+    }
+  }
+
+  function mapDispatch(dispatch) {
+    return {
+      fetchPlayer: (lastName, firstName) => dispatch(fetchPlayerThunk(lastName, firstName)),
+      removePlayer: () => dispatch(removePlayerThunk())
+    }
+  }
+  
 
   export default CreatePost;
