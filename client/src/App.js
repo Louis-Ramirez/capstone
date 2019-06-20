@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import LandingPage from './components/landing.js';
 import signup from './components/signUp.js';
-import login from './components/login.js';
-import Home from './components/home.js';
+ import login from './components/login.js';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './styles/App.css';
 import Header from './components/header.js'
