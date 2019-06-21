@@ -1,0 +1,56 @@
+.mainHeader{
+	background-color: white;
+	width: 100%;
+	height: 50px;
+	font-size: 1.25rem;
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 10px 10px rgba(0,0,0,0.8);
+}
+
+/*Controls position of buttons*/
+.header-button-container, .headerLinks {
+	display: flex;
+	margin-left: 10px;
+/*	align-items: center;
+*/	justify-content: space-around;
+}
+
+.headerLinks {
+	height: 50px;
+	display: inline-flex;
+	width: 70%;
+}
+/*Controls spacing between the buttons*/
+.header-button-container a {
+	margin: 10px;
+
+}
+.iconic iconic-lg {
+	color: #00a0dc;
+}
+/*.inverted {
+	filter: invert(100%);
+}*/
+
+/*Controls the spacing between the list items, spaces them evenly*/
+li 
+{
+  width: 33%;
+}
+
+Removes bullet from list item
+ul { list-style: none; }
+
+/*Fix the padding/margin of icons and buttons*/
+
+/*removes link styles from logo*/
+a
+{
+	text-decoration: none; 
+	color: black; 
+	font-weight: bold;
+	text-align: center;
+	font-family: verdana;
+}

@@ -10,12 +10,14 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './styles/App.css';
 import requireAuth from './components/authComponents.js/require_auth';
 import noRequireAuth from './components/authComponents.js/no_require_auth';
+import Header from './components/header';
 
 
 class App extends Component {
   render(){
   	return(
   		<Router>
+          <Header />
   			<Switch>
 				 <Route exact path="/" component={LandingPage}/>
          <Route exact path="/home" component={requireAuth(Home)}/>

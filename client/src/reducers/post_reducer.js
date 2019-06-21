@@ -1,4 +1,4 @@
-import { FETCH_ALL_POSTS, FETCH_ALL_POST_COMMENTS, ADD_NEW_POST, FETCH_POST_BY_ID } from '../actions/actionPost';
+import { FETCH_ALL_POSTS, FETCH_ALL_POST_COMMENTS, ADD_NEW_POST, FETCH_POST_BY_ID, ADD_COMMENT_FROM_POST } from '../actions/actionPost';
 
 
 //if the user is authenticated, state returns true or false
@@ -14,7 +14,9 @@ export default function(state = [], action){
     case FETCH_ALL_POST_COMMENTS:
       return action.payload;
     case FETCH_POST_BY_ID:
-      return action.payload
+      return action.payload;
+    case ADD_COMMENT_FROM_POST:
+          return action.payload
     default:
       return state;
   }

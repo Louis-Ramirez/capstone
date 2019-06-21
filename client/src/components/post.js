@@ -6,7 +6,7 @@ import '../styles/home.css';
 import {Link} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {fetchAllPostsThunk, addNewPostThunk, fetchAllPostCommentsThunk, fetchPostByIdThunk } from '../actions/actionPost';
+import {fetchAllPostsThunk, addNewPostThunk, fetchAllPostCommentsThunk, fetchPostByIdThunk, addCommentFromPostThunk } from '../actions/actionPost';
 
 
 class Post extends React.Component{
@@ -14,6 +14,7 @@ class Post extends React.Component{
         super(props);
         this.state={
             sideBar: false,
+            comments: []
         }
     }
 
@@ -33,7 +34,18 @@ class Post extends React.Component{
       }
     }
 
+    addComment = (event) => {
+      event.preventDefault();
+      let comment = {
+        postId: this.props.match.params.id,
+        body: this.refs.comment.value
+      }
+
+      this.props.addCommentFromPost(comment);
+    }
+
     componentDidMount() {
+      console.log(this.props);
       this.props.getPostById(this.props.match.params.id);
     }
 
@@ -78,9 +90,9 @@ class Post extends React.Component{
                     </div>
 
                     <div className="five_postCommentContainer">
-                      <input type="text" name="commentBox" className="five_postCommentBox" placeholder="Insert comments here"/>
+                      <input type="text" name="commentBox" className="five_postCommentBox" placeholder="Insert comments here" ref="comment"/>
                       <div className="five_buttonBox">
-                        <button className="five_commentButton">Submit</button>
+                        <button className="five_commentButton"onClick={this.addComment}>Submit</button>
                       </div>
                     </div>
                     {this.setComment()}
@@ -95,6 +107,7 @@ class Post extends React.Component{
     }
 
     render(){
+      console.log(this.props.match.params.id);
       if(this.props.postReducer !== 0 && this.props.postReducer.data !== undefined){
         return this.renderPostView();
       } else {
@@ -125,7 +138,8 @@ function matchDispatchToProps(dispatch) {
     addNewPost: (post, userId) => dispatch(addNewPostThunk(post, userId)),
     getAllPost: () => dispatch(fetchAllPostsThunk()),
     getAllPostComments: (postId) => dispatch(fetchAllPostCommentsThunk(postId)),
-    getPostById: (postId) => dispatch(fetchPostByIdThunk(postId))
+    getPostById: (postId) => dispatch(fetchPostByIdThunk(postId)),
+    addCommentFromPost: (comment) => dispatch(addCommentFromPostThunk(comment))
   }
 }
 

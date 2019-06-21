@@ -60,10 +60,10 @@ class Home extends Component{
   }
 
 
-  sideBarView = (
+  sideBarView = () => (
       <div className="three_sidebar" onMouseLeave={this.hideSideBar} >
       <div className="three_credentials three_sideSub">
-          <img src="https://data.whicdn.com/images/320568210/large.jpg" alt="Cartoon Girl"/>
+          <img src={this.state.imageUrl} alt={this.state.username}/>
           <h3> Cartoon Girl</h3>
       </div>
       <div className="three_createPostBtn three_sideSub">
@@ -153,7 +153,7 @@ class Home extends Component{
             </div>
 >>>>>>> fe768220b4a0ca5ea714eb1e1b42f05aac10e7d6
 
-              {this.state.sideBar ? this.sideBarView : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> }
+              {this.state.sideBar ? this.sideBarView() : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> }
 
           </div>
       );
@@ -163,10 +163,7 @@ class Home extends Component{
           <div className="three_wrapper">
 
             <div className="three_main">
-              <header>
-                <h1>Welcome</h1>
-                <Link to="/signout"><button>sign out</button></Link>
-              </header>
+              
 
               <div className="three_list">
                   <CreatePost userId={this.state.id}/>
@@ -183,10 +180,7 @@ class Home extends Component{
       return(
           <div className="three_wrapper">
             <div className="three_main">
-              <header>
-                <h1>Welcome</h1>
-                <Link to="/signout"><button>sign out</button></Link>
-              </header>
+              
 
               <div className="three_list">
                 <p> Recent: </p>
@@ -237,3 +231,4 @@ function matchDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Home);
+

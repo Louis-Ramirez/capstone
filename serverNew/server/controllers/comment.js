@@ -5,19 +5,18 @@ const { Comment } = model;
 class Comments {
   // create method for posts
   static createComment(req, res) {
-    console.log("activated======");
-    const { body } = req["query"]
-    const { userId, postId } = req.params
+    console.log("activated======", req.body);
+   const { body } = req.body
+    const { postId } = req.params
     return Comment
       .create({
         body,
-        userId,
         postId
       })
       .then(commentData => res.status(201).send({
         message: `Comment created!`,
         commentData
-      }))
+      })) 
   }
 
   static list(req, response) {
