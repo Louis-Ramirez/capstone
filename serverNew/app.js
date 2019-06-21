@@ -1,10 +1,11 @@
-import http from 'http';
-import express from 'express';
-import logger from 'morgan';
-import bodyParser from 'body-parser';
-import routes from './server/routes';
-import passport from 'passport';
-import cors from 'cors';
+
+const http = require('http'); 
+const express = require('express'); 
+const logger = equire('morgan'); 
+const bodyParser = require('body-parser'); 
+const routes = require('./server/routes');
+const passport = require('passport'); 
+const cors = require('cors');
 
 
 const hostname = '127.0.0.1';

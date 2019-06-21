@@ -1,9 +1,11 @@
 // tells server where to look for token
-import {Strategy as JwtStrategy, ExtractJwt }  from 'passport-jwt';
+const strategy = require('passport-jwt') 
+const JwtStrategy = strategy.Strategy; 
+const ExtractJwt = strategy.ExtractJwt; 
 
-
-import {User} from '../models';
-import authConfig from '../config.js';
+const User  = require('../models').User;
+// const {User} from '../models';
+const authConfig = require ('../config'); 
                                                          
 //set up for jwt passport strategy
 

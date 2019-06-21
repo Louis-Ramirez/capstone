@@ -1,4 +1,5 @@
-import model from '../models';
+// import model from '../models';
+const model = require('../models')
 
 const { Comment } = model;
 
@@ -91,4 +92,4 @@ class Comments {
 
 }
 
-export default Comments;
+module.exports = Comments;

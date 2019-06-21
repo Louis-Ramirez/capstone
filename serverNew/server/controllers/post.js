@@ -1,4 +1,5 @@
-import model from '../models';
+
+const model = require('../models')
 
 const { Post, Comment,User } = model;
 
@@ -98,4 +99,4 @@ class Posts {
 
 }
 
-export default Posts;
+module.exports = Posts;

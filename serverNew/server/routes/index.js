@@ -1,7 +1,7 @@
-import Users from '../controllers/user';
-import Posts from '../controllers/post';
-import Comments from '../controllers/comment';
-import passport from 'passport';
+const Users = require( '../controllers/user');
+const Posts = require( '../controllers/post');
+const Comments = require( '../controllers/comment');
+const passport = require('passport');
 
 
 require( '../services/passport')(passport);
@@ -9,7 +9,7 @@ require( '../services/passport')(passport);
 const authentication = passport.authenticate('jwt' , {session :false}
 );
 
-export default (app) => {
+module.exports = (app) => {
 
   app.get('/api', (req, res) => res.status(200).send({
     message: 'Welcome to the Capstone API!',

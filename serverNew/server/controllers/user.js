@@ -1,8 +1,8 @@
-import model from '../models';
-import bcrypt from 'bcryptjs';
-import '../services/passport';
-import jwt from 'jsonwebtoken';
-import authConfig from '../config.js';
+const model = require('../models');
+const bcrypt = require('bcryptjs');
+require('../services/passport');
+const jwt = require('jsonwebtoken');
+const authConfig = require('../config.js');
 
 const { User } = model;
 
@@ -108,4 +108,4 @@ class Users {
 }
 
 
-export default Users;
+module.exports = Users;
