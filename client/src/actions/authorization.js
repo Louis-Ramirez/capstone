@@ -10,7 +10,7 @@ export const SIGNUP = 'SIGNUP';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 
 
-const URL = 'http://127.0.0.1:8080'; 
+const URL = 'http://127.0.0.1:8080';
 
 //passing password and history from login component
 //email/pass required for auth & history object will
@@ -25,7 +25,7 @@ export function loginAction({ email, password}, history){
             //AUTHENTICATED saves token in localStorage
             localStorage.setItem('user', res.data.token);
             //history.push() redirects the user to the specific route URL
-            history.push('/home', {user: res.data.user});
+            history.push('/home',{user: res.data.user});
         } catch (error){
             dispatch({
                 type: AUTHENTICATION_ERROR, //action
