@@ -1,17 +1,17 @@
-.container{
+.three_individual{
     display: flex;
-    background-color: teal;
+    background-color: #333;
     justify-content: center;   
     height:auto;
 }
 nav{
    display:flex;
    justify-content: center;
-    background-color: teal;
+    background-color: #333;
     color: white;
 }
 body{
-    background-color: teal;
+    background-color: #333;
 }
 
 .brand{
@@ -21,18 +21,31 @@ body{
 .title-control{
     height:50px;
     width: 300px;
+    border-radius: 5%;
 }
-.form-group{
-    /* height:100px;
-    width: 300px; */
-}
+/* .form-group{
+     height:100px;
+    width: 300px;
+} */
 .body-control{
     height: 100px;
     width: 300px;
+    border-radius: 5%;
 }
 .btn-btn-primary{
-    width:300px;  
-    background-color: maroon;
-    border: none;
-    color:white;
+    display:flex;
+    justify-content: center;
+    width: 50%;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: verdana;
+    display: inline-flex;
+    text-align: center;
+}
+
+.button-wrapper{
+    display: flex;
+    justify-content: center;
 }

@@ -26,29 +26,38 @@ class CreatePost extends Component {
   render() {
     console.log(this.props.history);
       return(
-        <div className="three_individual">
-          <form onSubmit={this.onHandleSubmit} >
-            <div className="form-group">
-              <input
-                type="text"
-                name="title"
-                placeholder="Enter title for your post"
-                ref="postTitle"
-                className="form-control"
-              />
-            </div>
-            <div className="form-group">
+    
+        <link rel="stylesheet" type="text/css" href="../styles /cpstyle.css"/>
+        <nav><h1 class = "brand">JIGSAW</h1></nav>
+        <body>
+            <div className="three_individual">
+            <form onSubmit={this.onHandleSubmit} >
+              <div className="form-group">
                 <input
-                type ="text"
-                name = "body"
-                placeholder="Enter description about post"
-                ref="postBody"
-
+                  type="text"
+                  name="title"
+                  placeholder="Enter title for your post"
+                  ref="postTitle"
+                  className="form-control"
                 />
+              </div>
+              <div className="form-group">
+                  <input
+                  type ="text"
+                  name = "body"
+                  placeholder="Enter description about post"
+                  ref="postBody"
+                  className="body-group"
+                  />
+              </div>
+              <br></br>
+              <div className ="button-wrapper">
+              <button className="btn-btn-primary">Post</button>
             </div>
-            <button className="btn btn-primary">Save</button>
-          </form>
-      </div>
+            </form>
+            </div>
+        </body>
+        
     );
   }
 }
