@@ -6,7 +6,7 @@ import '../styles/home.css';
 import {Link} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {fetchAllPostsThunk, addNewPostThunk, fetchAllPostCommentsThunk, fetchPostByIdThunk } from '../actions/actionPost';
+import {fetchAllPostsThunk, addNewPostThunk, fetchAllPostCommentsThunk, fetchPostByIdThunk, addCommentFromPostThunk } from '../actions/actionPost';
 
 
 class Post extends React.Component{
@@ -36,8 +36,12 @@ class Post extends React.Component{
 
     addComment = (event) => {
       event.preventDefault();
-      console.log(this.name.comment.value);
-          
+      let comment = {
+        postId: this.props.match.params.id,
+        body: this.refs.comment.value
+      }
+
+      this.props.addCommentFromPost(comment);
     }
 
     componentDidMount() {
@@ -86,7 +90,7 @@ class Post extends React.Component{
                     </div>
 
                     <div className="five_postCommentContainer">
-                      <input type="text" name="commentBox" className="five_postCommentBox" placeholder="Insert comments here" name="comment"/>
+                      <input type="text" name="commentBox" className="five_postCommentBox" placeholder="Insert comments here" ref="comment"/>
                       <div className="five_buttonBox">
                         <button className="five_commentButton"onClick={this.addComment}>Submit</button>
                       </div>
@@ -134,7 +138,8 @@ function matchDispatchToProps(dispatch) {
     addNewPost: (post, userId) => dispatch(addNewPostThunk(post, userId)),
     getAllPost: () => dispatch(fetchAllPostsThunk()),
     getAllPostComments: (postId) => dispatch(fetchAllPostCommentsThunk(postId)),
-    getPostById: (postId) => dispatch(fetchPostByIdThunk(postId))
+    getPostById: (postId) => dispatch(fetchPostByIdThunk(postId)),
+    addCommentFromPost: (comment) => dispatch(addCommentFromPostThunk(comment))
   }
 }
 

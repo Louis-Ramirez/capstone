@@ -60,10 +60,10 @@ class Home extends Component{
   }
 
 
-  sideBarView = (
+  sideBarView = () => (
       <div className="three_sidebar" onMouseLeave={this.hideSideBar} >
       <div className="three_credentials three_sideSub">
-          <img src="https://data.whicdn.com/images/320568210/large.jpg" alt="Cartoon Girl"/>
+          <img src={this.state.imageUrl} alt={this.state.username}/>
           <h3> Cartoon Girl</h3>
       </div>
       <div className="three_createPostBtn three_sideSub">
@@ -92,7 +92,7 @@ class Home extends Component{
               </div>
             </div>
 
-              {this.state.sideBar ? this.sideBarView : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> }
+              {this.state.sideBar ? this.sideBarView() : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> }
 
           </div>
       );
@@ -102,10 +102,7 @@ class Home extends Component{
           <div className="three_wrapper">
 
             <div className="three_main">
-              <header>
-                <h1>Welcome</h1>
-                <Link to="/signout"><button>sign out</button></Link>
-              </header>
+              
 
               <div className="three_list">
                   <CreatePost userId={this.state.id}/>
@@ -122,10 +119,7 @@ class Home extends Component{
       return(
           <div className="three_wrapper">
             <div className="three_main">
-              <header>
-                <h1>Welcome</h1>
-                <Link to="/signout"><button>sign out</button></Link>
-              </header>
+              
 
               <div className="three_list">
                 <p> Recent: </p>
@@ -133,7 +127,7 @@ class Home extends Component{
                 {this.props.postReducer.map((p) => {
                   return(
                     <div className="three_individual">
-                        <Link to={'/post/'+ p.id +'/'+ this.state.id} style={{textDecoration: 'none'}}>
+                        <Link to={'/post/'+ p.id} style={{textDecoration: 'none'}}>
                             <span><h3>{p.title}</h3></span>
                         </Link>
                         <p><img src={like} alt="like" style={ {height: 30}}/>{" "}

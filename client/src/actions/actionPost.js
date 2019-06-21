@@ -38,7 +38,7 @@ const fetchPostById = (post) => {
   }
 }
 
-const addPostFromComment = (comment) => {
+const addCommentFromPost = (comment) => {
     return{
       type : ADD_COMMENT_FROM_POST,
       payload: comment
@@ -82,15 +82,16 @@ export const fetchPostByIdThunk = (postId) => (dispatch) => {
     .catch(err => console.log(err))
 }
 
-export const addPostFromCommentThunk = (comment) => (dispatch) => {
-   console.log("-----------------add comment thunk------------");
+export const addCommentFromPostThunk = (comment) => (dispatch) => {
+  
+   console.log("-----------------add comment thunk------------", comment);
    return axios
-    .get(`http://127.0.0.1:8080//api/users/:userId/posts/:postId`)
-    .then(response => dispatch(fetchPostById(response)))
-    .catch(err => console.log(err))
+    .post(`http://127.0.0.1:8080/api/comment/${comment.postId}`,comment)
+    .then(response => dispatch(addCommentFromPost()))
+    .catch(err => console.log(err)) 
 }
 
-export default (state = [], action) => {
+/*export default (state = [], action) => {
   switch (action.type) {
     case FETCH_ALL_POSTS:
       return action.payload;
@@ -104,4 +105,4 @@ export default (state = [], action) => {
     default:
       return state;
   }
-}
+} */

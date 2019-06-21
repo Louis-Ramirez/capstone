@@ -25,7 +25,7 @@ export default (app) => {
   app.put('/api/posts/:postId', Posts.modify);
   app.delete('/api/posts/:postId', Posts.delete);
 
-  app.post('/api/users/:userId/posts/:postId', Comments.createComment);
+  app.post('/api/comment/:postId/', Comments.createComment);
   app.get('/api/comments', Comments.list);
   app.get('/api/posts/:postId/comments', Comments.listPostComments);
   app.put('/api/comments/:commentId', Comments.modifyComment);
