@@ -25,6 +25,7 @@ class Home extends Component{
   }
 
   componentDidMount() {
+   
     console.log("in mount ");
     this.props.getAllPost();
     if(this.props.history.location.state === undefined){
@@ -61,10 +62,11 @@ class Home extends Component{
 
 
   sideBarView = () => (
-      <div className="three_sidebar" onMouseLeave={this.hideSideBar} >
+      <div className="three_sidebar" >
       <div className="three_credentials three_sideSub">
           <img src={this.state.imageUrl} alt={this.state.username}/>
-          <h3> Cartoon Girl</h3>
+          <h3>{this.state.username}</h3>
+          <p>{this.state.email}</p>
       </div>
       <div className="three_createPostBtn three_sideSub">
               <button id="three_createPost" onClick={this.renderForm}>Create Post</button>
@@ -92,7 +94,8 @@ class Home extends Component{
               </div>
             </div>
 
-              {this.state.sideBar ? this.sideBarView() : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> }
+              {/*{this.state.sideBar ? this.sideBarView() : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> } */}
+              {this.sideBarView()}
 
           </div>
       );
@@ -110,7 +113,8 @@ class Home extends Component{
               </div>
             </div>
 
-              {this.state.sideBar ? this.sideBarView : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> }
+              {/*{this.state.sideBar ? this.sideBarView() : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> } */}
+              {this.sideBarView()}
 
           </div>
       );
@@ -139,7 +143,8 @@ class Home extends Component{
             </div>
 
 
-              {this.state.sideBar ? this.sideBarView : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> }
+              {/*{this.state.sideBar ? this.sideBarView() : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> } */}
+              {this.sideBarView()}
 
           </div>
       );

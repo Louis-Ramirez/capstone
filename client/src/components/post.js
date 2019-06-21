@@ -1,4 +1,4 @@
-//home.js
+//post.js
 
 import React, {Component} from 'react';
 import '../styles/post.css';
@@ -21,7 +21,7 @@ class Post extends React.Component{
     setComment() {
       if(this.props.postReducer !== 0 && this.props.postReducer.data !== undefined){
         return(
-          this.props.postReducer.data.Comments.map(element =>
+          this.props.postReducer.data.Comments.slice(0).reverse().map(element =>
             <div className="five_eachUserCommentBox">
               <p>{element.body}</p>
             </div>
@@ -42,6 +42,7 @@ class Post extends React.Component{
       }
 
       this.props.addCommentFromPost(comment);
+      window.location.reload();
     }
 
     componentDidMount() {
@@ -57,14 +58,14 @@ class Post extends React.Component{
         this.setState({sideBar: false});
     }
 
-    sideBarView = (
+    /*sideBarView = (
         <div className="three_sidebar" onMouseLeave={this.hideSideBar} >
         <div className="three_credentials three_sideSub">
             <img src="https://data.whicdn.com/images/320568210/large.jpg" alt="Cartoon Girl"/>
             <h3> Cartoon Girl</h3>
         </div>
     </div>
-    )
+    ) */
 
     renderNoPostView(){
       return(
@@ -100,7 +101,7 @@ class Post extends React.Component{
                   </div>
 
               </div>
-              {this.state.sideBar ? this.sideBarView : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> }
+             {/* {this.state.sideBar ? this.sideBarView : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> } */}
 
           </div>
       )

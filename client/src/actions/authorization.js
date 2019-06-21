@@ -8,6 +8,7 @@ export const UNAUTHENTICATED = 'unauthenticated_user';
 export const AUTHENTICATION_ERROR = 'authentication_error';
 export const SIGNUP = 'SIGNUP';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
+export const USER = 'USER';
 
 
 const URL = 'http://127.0.0.1:8080';
@@ -75,3 +76,5 @@ export function signoutAction(history) {
 }
 
 }
+
+

@@ -38,7 +38,7 @@ class login extends Component {
                     /><br/>
                     <Field name="password"
                         component="input"
-                        type="text"
+                        type="password"
                         placeholder="Password"
                     /><br/>
                     <div className="btnWrapper">
