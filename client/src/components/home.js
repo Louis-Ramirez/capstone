@@ -64,7 +64,7 @@ class Home extends Component{
       <div className="three_sidebar" onMouseLeave={this.hideSideBar} >
       <div className="three_credentials three_sideSub">
           <img src={this.state.imageUrl} alt={this.state.username}/>
-          <h3> Cartoon Girl</h3>
+          <h3>{this.state.username}</h3>
       </div>
       <div className="three_createPostBtn three_sideSub">
               <button id="three_createPost" onClick={this.renderForm}>Create Post</button>
@@ -72,66 +72,6 @@ class Home extends Component{
   </div>
   )
 
-<<<<<<< HEAD
-    sideBarView = () => (
-        <div className="three_sidebar" onMouseLeave={this.hideSideBar} >
-        <div className="three_credentials three_sideSub">
-            <img src={this.state.imageUrl} alt="User"/>
-            <h3>{this.state.username}</h3>
-            <p>{this.state.email}</p>
-        </div>
-        <div className="three_createPostBtn three_sideSub">
-                <button id="three_createPost" onClick={this.renderForm}>Create Post</button>
-        </div>
-    </div>
-    )
-
-
-   /* TempForm = (
-        <div  className="three_form" >
-        <form  onSubmit={this.closeForm} className="modal-main" >
-            <label>Title</label>
-            <br />
-            <input type="text" name="title" />
-            <br/>
-            <label>Body</label>
-            <br />
-            <input type="text" name="body" id="three_body" />
-            <br/>
-            <input type="submit" value="submit"/>
-        </form>
-        </div>
-    )*/
-    
-
-    render(){
-        console.log(this.state);
-        const showHide = this.state.createPost ? "three_form display-block" : "three_form  display-none";
-        const questions = ["Why is the sky blue ?", "Can we teach dogs to talk ?", "How many jelly beans can fit into the pacific ocean ?", "What is the best Island to vacation on ?", " Who was the greatest man alive ?"];
-        const postList = questions.map(post => {
-            return(
-            <div className="three_individual">
-                {post}  
-                <p><img src={like} alt="like" style={ {height: 30}}/>{" "}
-                <img src={dislike} alt="dislike" style={ {height: 30}}/></p>
-            </div>
-        )});
-        return(
-            <div className="three_wrapper" >
-                <div className="three_main">
-                    <header>
-                        <h1>Welcome</h1>
-                        <Link to="/signout"><button>sign out</button></Link>
-                    </header>
-                    {this.state.createPost ? <div className={showHide} ><Input/></div>: <div></div>}
-                    {/*<CreatePost show={this.state.createPost} handleClose={this.closeForm} /> */}
-                    <div className="three_list">
-                        <h3>Recent: </h3>
-                        {postList}
-                    </div>
-                </div>
-                {this.state.sideBar ? this.sideBarView() : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> }
-=======
 
   render(){
     // const showHide = this.state.createPost ? "three_form display-block" : "three_form  display-none";
@@ -140,10 +80,6 @@ class Home extends Component{
           <div className="three_wrapper">
 
             <div className="three_main">
-              <header>
-                <h1>Welcome</h1>
-                <Link to="/signout"><button>sign out</button></Link>
-              </header>
 
 
               <div className="three_list">
@@ -151,7 +87,6 @@ class Home extends Component{
                 <p>There are no posts</p>
               </div>
             </div>
->>>>>>> fe768220b4a0ca5ea714eb1e1b42f05aac10e7d6
 
               {this.state.sideBar ? this.sideBarView() : <div  id="three_default" onMouseEnter={this.showSidebar}> </div> }
 
