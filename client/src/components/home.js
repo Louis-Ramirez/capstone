@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import "../styles/home.css";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {fetchAllPostsThunk, addNewPostThunk } from '../actions/actionPost';
+import {fetchAllPostsThunk, addNewPostThunk,saveUserThunk } from '../actions/actionPost';
 import like from '../imgs/like.png';
 import dislike from '../imgs/dislike.png'
 import CreatePost from './createPostForm';
@@ -14,10 +14,6 @@ class Home extends Component{
   constructor(props){
       super(props);
       this.state={
-          id: '',
-          username: '',
-          email: '',
-          imageUrl: '',
           createPost: false,
           sideBar: false
       }
@@ -25,23 +21,31 @@ class Home extends Component{
   }
 
   componentDidMount() {
-   
-    console.log("in mount ");
+    console.log(this.props);
     this.props.getAllPost();
     if(this.props.history.location.state === undefined){
-      console.log("user not sent");
+      console.log("undefined reloading");
+      //window.location.reload();
     }
     else {
+      console.log(this.props);
+      console.log("defined calling action")
       let user = this.props.history.location.state.user;
-      console.log(user);
-      this.setState({...this.state,
+
+      console.log("----------User--------",user);
+      //let user = {}
+      this.props.saveUser(user);
+     /* this.setState({...this.state,
         id: user.id,
         username: user.username,
         imageUrl: user.imageUrl,
         email: user.email
-      });
+      }); */
+  
    }
-   console.log("---- after setting user id -----", this.state.id)
+   console.log("---- after setting user id -----", this.state.id);
+
+   
   }
 
   renderForm = () =>{
@@ -49,6 +53,7 @@ class Home extends Component{
   }
   closeForm = () => {
       this.setState({createPost: false});
+      window.location.reload();
   }
   showSidebar = () => {
     console.log("---onMouseEnter----", this.state.sideBar);
@@ -64,9 +69,9 @@ class Home extends Component{
   sideBarView = () => (
       <div className="three_sidebar" >
       <div className="three_credentials three_sideSub">
-          <img src={this.state.imageUrl} alt={this.state.username}/>
-          <h3>{this.state.username}</h3>
-          <p>{this.state.email}</p>
+          <img src={this.props.user.imageUrl} alt={this.props.user.username}/>
+          <h3>{this.props.user.username}</h3>
+          <p>{this.props.user.email}</p>
       </div>
       <div className="three_createPostBtn three_sideSub">
               <button id="three_createPost" onClick={this.renderForm}>Create Post</button>
@@ -76,8 +81,9 @@ class Home extends Component{
 
 
   render(){
+    console.log("render", this.props.user, this.state);
     // const showHide = this.state.createPost ? "three_form display-block" : "three_form  display-none";
-    if(this.props.postReducer.length === 0){
+    if( this.props.postReducer.length === 0){
       return(
           <div className="three_wrapper">
 
@@ -108,8 +114,8 @@ class Home extends Component{
               
 
               <div className="three_list">
-                  <CreatePost userId={this.state.id}/>
-                  <button onClick={this.closeForm}>Cancel</button>
+                  <CreatePost userId={this.props.user.id}/>
+                  <button onClick={this.closeForm}>Close</button>
               </div>
             </div>
 
@@ -127,7 +133,7 @@ class Home extends Component{
 
               <div className="three_list">
                 <p> Recent: </p>
-
+              
                 {this.props.postReducer.map((p) => {
                   return(
                     <div className="three_individual">
@@ -138,7 +144,7 @@ class Home extends Component{
                         <img src={dislike} alt="dislike" style={ {height: 30}}/></p>
                     </div>
                   )
-                })}
+                })} 
               </div>
             </div>
 
@@ -156,7 +162,8 @@ class Home extends Component{
 
 function mapStateToProps(state){
   return {
-    postReducer: state.post
+    postReducer: state.post,
+    user: state.user
   };
 }
 
@@ -170,7 +177,8 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch) {
   return {
     addNewPost: (post, userId) => dispatch(addNewPostThunk(post, userId)),
-    getAllPost: () => dispatch(fetchAllPostsThunk())
+    getAllPost: () => dispatch(fetchAllPostsThunk()),
+    saveUser: (user) => dispatch(saveUserThunk(user))
   }
 }
 

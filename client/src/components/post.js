@@ -91,7 +91,7 @@ class Post extends React.Component{
                     </div>
 
                     <div className="five_postCommentContainer">
-                      <input type="text" name="commentBox" className="five_postCommentBox" placeholder="Insert comments here" ref="comment"/>
+                      <input type="text" name="commentBox" className="five_postCommentBox" placeholder="Insert comments here" ref="comment" required/>
                       <div className="five_buttonBox">
                         <button className="five_commentButton"onClick={this.addComment}>Submit</button>
                       </div>

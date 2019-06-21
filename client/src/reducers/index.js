@@ -3,6 +3,7 @@ import { reducer as formReducer } from 'redux-form';
 import { reducer as signUpReducer } from 'redux-form';
 import authReducer from './auth_reducer';
 import postReducer from './post_reducer';
+import userReducer from './userReducer';
 
 
 export const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ export const rootReducer = combineReducers({
     auth: authReducer , //handles whether user is authenticated
     signUp: signUpReducer,
     post: postReducer, 
+    user: userReducer
 });
 
 // export default rootReducer;
